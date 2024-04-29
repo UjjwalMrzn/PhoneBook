@@ -5,6 +5,23 @@
     font-family: 'Poppins', sans-serif;
 
 }
+/* Styles for the button */
+.button {
+  position: fixed;
+  top: 20px; /* Adjust top position as needed */
+  right: 20px; /* Adjust right position as needed */
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style the button on hover */
+.button:hover {
+  background-color: #45a049;
+}
 
 body {
     width: 100%;
