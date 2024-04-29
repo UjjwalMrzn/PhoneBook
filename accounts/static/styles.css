@@ -41,6 +41,7 @@ width: 100%;
 min-height: 80vh;
 padding: 5%;
 display: flex;
+flex-direction: column; /* Stack children vertically */
 align-items: center;
 justify-content: center;
 }
@@ -84,4 +85,10 @@ height: 60px;
 background:  #4CAF50;
 cursor: pointer;
 
+}
+
+.hint-text {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px; /* Add margin to separate from search bar */
 }
