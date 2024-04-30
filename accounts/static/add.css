@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+    min-height: 80vh;
+    padding: 5%;
+    background-image: url("/accounts/static/gbck.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+/* 
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    
+}*/
+
+.col {
+    margin-bottom: 10px; /* Optional: Adds space between the label and the input */
+}

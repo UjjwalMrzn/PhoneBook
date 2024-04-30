@@ -2,15 +2,6 @@ from django.db import models
 
 
 # Create your models here.
-
-class Person(models.Model):
-    #id = models.IntegerField(null=True)
-    first_name = models.CharField(max_length=200 , null=True)
-    last_name = models.CharField(max_length=200 , null=True)
-
-    def __str__(self):
-        return self.first_name
-
 class Phone(models.Model):
     TYPE = (
         ('Home' , 'Home'),
@@ -19,8 +10,6 @@ class Phone(models.Model):
     )
     Number = models.IntegerField( null=True )
     Number_type = models.CharField(max_length=200 , null=True , choices=TYPE )
-    Person = models.ForeignKey(Person, null=True , on_delete= models.SET_NULL)
-
     def __getval__(self):
         return self.Number
     
@@ -52,4 +41,17 @@ class SocialMedia(models.Model):
     def __str__(self):
         return self.User_Name
     
+
+
+class Person(models.Model):
+    #id = models.IntegerField(null=True)
+    first_name = models.CharField(max_length=200 , null=True)
+    last_name = models.CharField(max_length=200 , null=True)
+    phone = models.ForeignKey(Phone, null=True , on_delete= models.SET_NULL)
+    email = models.ForeignKey(Email, null=True , on_delete= models.SET_NULL)
+
+
+
+    def __str__(self):
+        return self.first_name
 
