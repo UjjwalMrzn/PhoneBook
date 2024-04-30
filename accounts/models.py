@@ -49,6 +49,7 @@ class Person(models.Model):
     last_name = models.CharField(max_length=200 , null=True)
     phone = models.ForeignKey(Phone, null=True , on_delete= models.SET_NULL)
     email = models.ForeignKey(Email, null=True , on_delete= models.SET_NULL)
+    media = models.ForeignKey(SocialMedia, null=True , on_delete= models.SET_NULL)
 
 
 
