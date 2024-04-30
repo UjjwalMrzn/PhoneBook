@@ -13,14 +13,14 @@
     <h2>Search Results:</h2>
 
 <br>
-        <div class="card card-body">
+        <div class="table table-hover">
             <table>
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Phone Number</th>
-                        <th>Email</th>
-                        <th>Action</th> <!-- New column for edit and delete buttons -->
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th> <!-- New column for edit and delete buttons -->
                     </tr>
                 </thead>
                 <tbody>
@@ -30,11 +30,11 @@
                         <td>{{ person.phone.Number }}</td>
                         <td>{{ person.email }}</td>
                         <td>
-                            <form action="/delete" method="post" style="display: inline;">
+                            <form action="/delete/" method="post" style="display: inline;">
                                 {% csrf_token %}
                                 <button type="submit">Edit</button> <!-- Delete button -->
                             </form>
-                            <form action="/delete" method="post" style="display: inline;">
+                            <form action="/delete/" method="post" style="display: inline;">
                                 {% csrf_token %}
                                 <button type="submit">Delete</button> <!-- Delete button -->
                             </form>
