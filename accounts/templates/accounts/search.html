@@ -12,26 +12,47 @@
         height: 100%;
         margin: 0;
         padding: 0;
-        background-color: rgb(146, 144, 144);
+        background-color: rgb(0, 0, 0);
+        color: #f2f2f2;
         background-position: center;
         background-size: cover;
         display: flex;   
         align-items: center;
         justify-content: center;
 }
+        .container {
+            margin-top: 3rem;
+        }
+        
+        table {
+            color: #ffffff; /* Set text color to white */
+        }
 
+        table.table-bordered {
+            align-items: center;
+            justify-content: center;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
+        table.table-bordered th,
+        table.table-bordered td {
+            border: 1px solid #ffffff; /* Set border color to white */
+            padding: 8px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     
 <div class="cointainer my-3">
     <h2>Search Results:</h2>
+    
 
 <br>
-        <div class="table table-hover">
+        <div class="table table-bordered">
             <table>
-                    <thead>
+                    <thead-light>
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Phone Number</th>
