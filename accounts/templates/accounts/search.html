@@ -89,15 +89,42 @@ td form button:hover {
                 <tbody>
                     {% for person in per %}
                     <tr>
-                        <td>{{ person.first_name}} {{ person.last_name }}</td>
-                        <td>{{ person.phone.Number }}</td>
-                        <td>{{ person.address }}</td>
-                        <td>{{ person.email }}</td>
+                        <!-- <td>{{ person.first_name}} {{ person.last_name }}</td> -->
+                        <td>
+                            {% if person.first_name and person.last_name %}
+                                {{ person.first_name }} {{ person.last_name }}
+                            {% else %}
+                               Not Available
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            {% if person.phone.Number %}
+                                {{ person.phone.Number }}
+                            {% else %}
+                               Not Available
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if person.address%}
+                                {{ person.address }}
+                            {% else %}
+                               Not Available
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if person.email%}
+                                {{ person.email }}
+                            {% else %}
+                               Not Available
+                            {% endif %}
+                        </td>
+                        
                         <td>
                             {% if person.media.User_Name and person.media.Linked_App %}
-                                {{ person.media.User_Name }}/{{ person.media.Linked_App }}
+                                {{ person.media.User_Name }}({{ person.media.Linked_App }})
                             {% else %}
-                                -
+                               Not Available
                             {% endif %}
                         </td>
                         

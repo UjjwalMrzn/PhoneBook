@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,6 +123,7 @@ h2{
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    
 }
 .button-container:hover {
     background-color: #45a049; /* Darker Green */
@@ -155,10 +156,14 @@ h2{
           <input type="text" placeholder="Enter Address" name="address" required>
         </div>
         <div class="input-box">
+          <label for="email">Email</label>
+          <input type="text" placeholder="Enter email" name="email" required>
+        </div>
+        <div class="input-box">
           <label for="username">User Name</label>
           <input type="text" placeholder="Enter Username" name="uname" required>
         </div>
-        <div class="input-box">
+        <!-- <div class="input-box">
         <span class="media-title"> Social Media</span>
         <div class="select-box">
         <select id="socialmedia" name="media">
@@ -167,7 +172,7 @@ h2{
           <option value="Linkedin">Linkedin</option>
           <option value="Twitter">Twitter</option>
         </select>
-        </div>
+        </div> -->
       </div>
 
         <div class="form-check">
@@ -178,7 +183,7 @@ h2{
 
 
       <div class="button-container">
-      <form action="/delete/" method="post" style="display: inline;">
+      <form action="" method="post" style="display: inline;">
         {% csrf_token %}
         <button type="submit">Add</button> <!-- add button -->
       </form>
