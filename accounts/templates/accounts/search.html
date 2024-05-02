@@ -79,6 +79,7 @@ td form button:hover {
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Phone Number</th>
+                        <th scope="col">Address</th>
                         <th scope="col">Email</th>
                         <th scope="col">Social Media</th>
                         <th scope="col">Action</th> <!-- New column for edit and delete buttons -->
@@ -90,6 +91,7 @@ td form button:hover {
                     <tr>
                         <td>{{ person.first_name}} {{ person.last_name }}</td>
                         <td>{{ person.phone.Number }}</td>
+                        <td>{{ person.address }}</td>
                         <td>{{ person.email }}</td>
                         <td>
                             {% if person.media.User_Name and person.media.Linked_App %}

@@ -10,8 +10,15 @@ class Phone(models.Model):
     )
     Number = models.IntegerField( null=True )
     Number_type = models.CharField(max_length=200 , null=True , choices=TYPE )
-    def __getval__(self):
-        return self.Number
+    def __str__(self):
+        return str(self.Number)
+    
+
+class Address(models.Model):
+    Address = models.CharField(max_length=200 , null=True)
+
+    def __str__(self):
+        return self.Address
     
 class Email(models.Model):
     TYPE = (
@@ -48,6 +55,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=200 , null=True)
     last_name = models.CharField(max_length=200 , null=True)
     phone = models.ForeignKey(Phone, null=True , on_delete= models.SET_NULL)
+    address = models.ForeignKey(Address, null=True , on_delete= models.SET_NULL)
     email = models.ForeignKey(Email, null=True , on_delete= models.SET_NULL)
     media = models.ForeignKey(SocialMedia, null=True , on_delete= models.SET_NULL)
 

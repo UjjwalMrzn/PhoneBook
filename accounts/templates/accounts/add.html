@@ -74,6 +74,43 @@ h2{
     color:#ffffff;
     font-weight: bold;
 }
+.input-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  padding-bottom: 15px;
+}
+
+.input-box input {
+  height: 40px;
+  width: 95%;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.input-box label,
+.media-title {
+  width: 100%; /* Adjusted width for labels */
+  margin: 5px 0;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.media-title {
+  margin-top: 20px; /* Added margin-top for spacing */
+}
+
+.select-box {
+  width: 100%; /* Adjusted width for select box */
+  margin-top: 5px; /* Added margin-top for spacing */
+}
+
+.button-container {
+  width: 100%; /* Adjusted width for button container */
+  margin-top: 5%; /* Added margin-top for spacing */
+}
+
 
 .form-check label{
   color: #ffffff;
@@ -87,10 +124,10 @@ h2{
     border-radius: 4px;
     cursor: pointer;
 }
-
 .button-container:hover {
     background-color: #45a049; /* Darker Green */
 }
+
   
 </style>
   
@@ -99,7 +136,7 @@ h2{
 <body>
   <div class="cointainer">
     <form action="" method="post">
-      <h2>Add Contacts</h2>
+      <h2>Add Contact</h2>
       <div class="content">
         <div class="input-box">
           <label for="firstname">Full Name</label>
@@ -121,8 +158,9 @@ h2{
           <label for="username">User Name</label>
           <input type="text" placeholder="Enter Username" name="uname" required>
         </div>
+        <div class="input-box">
         <span class="media-title"> Social Media</span>
-        <div>
+        <div class="select-box">
         <select id="socialmedia" name="media">
           <option value="Instagram">Instagram</option>
           <option value="Facebook">Facebook</option>
