@@ -74,14 +74,18 @@ h2{
     color:#ffffff;
     font-weight: bold;
 }
+
+.form-check label{
+  color: #ffffff;
+}
 .button-container button{
+    width: 100%;
     background-color: #4CAF50; /* Green */
     color: white;
     padding: 8px 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-
 }
 
 .button-container:hover {
@@ -126,14 +130,27 @@ h2{
           <option value="Twitter">Twitter</option>
         </select>
         </div>
-
-      
       </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+          <label class="form-check-label" for="invalidCheck2">
+            All above details are correct.
+          </label>
+
+
       <div class="button-container">
-        <button>
+      <form action="/delete/" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">Add</button> <!-- add button -->
+      </form>
+    </div>
+    
+      <!-- <div class="button-container">
+        <button type="submit">
           Add
         </button>
-      </div>
+      </div> -->
     </form>
     
   </div>
