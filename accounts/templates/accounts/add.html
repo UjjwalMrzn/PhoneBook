@@ -122,8 +122,11 @@ h2{
   
 </head>
 <body>
+
   <div class="cointainer">
     <form action="" method="post">
+      {% csrf_token %}
+
       <h2>Add Contact</h2>
       <div class="content">
         <div class="input-box">
@@ -140,7 +143,7 @@ h2{
           <div class="input-box">
           
             <div class="select-box">
-            <select id="Number_type" name="type">
+            <select id="Number_type" name="ntype">
               <option value="Home">Home</option>
               <option value="Mobile">Mobile</option>
               <option value="Office">Office</option>
@@ -156,7 +159,7 @@ h2{
           <input type="text" placeholder="Enter Address" name="address" required>
           <div class="input-box">
           <div class="select-box">
-            <select id="address_type" name="type">
+            <select id="address_type" name="atype">
               <option value="Home">Home</option>
               <option value="Office">Office</option>
             </select>
@@ -168,7 +171,7 @@ h2{
           <input type="text" placeholder="Enter email" name="email" required>
           <div class="input-box">
             <div class="select-box">
-            <select id="email_type" name="type">
+            <select id="email_type" name="etype">
               <option value="Home">Home</option>
               <option value="Mobile">Personal</option>
               <option value="Office">Office</option>
@@ -182,7 +185,7 @@ h2{
         
         <div class="input-box">
         <div class="select-box">
-        <select id="socialmedia" name="media">
+        <select id="socialmedia" name="mtype">
           <option value="Instagram">Instagram</option>
           <option value="Facebook">Facebook</option>
           <option value="Linkedin">Linkedin</option>

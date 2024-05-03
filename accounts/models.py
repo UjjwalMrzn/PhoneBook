@@ -15,10 +15,15 @@ class Phone(models.Model):
     
 
 class Address(models.Model):
+    TYPE = (
+        ('Home' , 'Home'),
+        ('Office' , 'Office')
+    )
     Address = models.CharField(max_length=200 , null=True)
-
+    Address_type= models.CharField(max_length=200 , null=True , choices=TYPE )
+    
     def __str__(self):
-        return self.Address
+        return str(self.Address)
     
 class Email(models.Model):
     TYPE = (
@@ -29,10 +34,9 @@ class Email(models.Model):
     )
     email = models.CharField(max_length=200 , null=True)
     email_type = models.CharField(max_length=200 , null=True , choices=TYPE )
-    phone = models.ForeignKey(Phone, null=True , on_delete= models.SET_NULL)
   
     def __str__(self):
-        return self.email
+        return str(self.email)
 
 
 class SocialMedia(models.Model):
@@ -46,7 +50,7 @@ class SocialMedia(models.Model):
     Linked_App = models.CharField(max_length=200 , null=True , choices=APP )
 
     def __str__(self):
-        return self.User_Name
+        return str(self.User_Name)
     
 
 
@@ -62,5 +66,4 @@ class Person(models.Model):
 
 
     def __str__(self):
-        return self.first_name
-
+        return str(self.first_name)

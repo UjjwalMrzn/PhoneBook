@@ -13,21 +13,30 @@ def home(request):
     return render(request, 'accounts/home.html')
 
 def add(request):
+   
     if request.method == 'POST':
+        print(request.POST)
         fname = request.POST['fname']
         lname = request.POST['lname']
         number = request.POST['number']
         address = request.POST['address']
         email = request.POST['email']
         uname = request.POST['uname']
-        # media = request.Post['media']
+        ntype = request.POST['ntype']
+        atype = request.POST['atype']
+        etype = request.POST['etype']
+        mtype = request.POST['mtype']
 
-        form,created=Phone.objects.get_or_create(Number=number)
-        form2,created2=Email.objects.get_or_create(email=email)
-        form3,created2=Address.objects.get_or_create(Address=address)
-        form4,created2=SocialMedia.objects.get_or_create(User_Name=uname)
+        form,created=Phone.objects.get_or_create(Number=number,Number_type=ntype)
+        form2,created2=Email.objects.get_or_create(email=email,email_type=etype)
+        form3,created2=Address.objects.get_or_create(Address=address,Address_type=atype)
+        form4,created2=SocialMedia.objects.get_or_create(User_Name=uname,Linked_App=mtype)
 
-        new_contact = Person(first_name=fname , last_name=lname ,phone=form, email=form2 , address=form3 , media = form4 )
+        #  drop down menu 
+       
+
+        new_contact = Person(first_name=fname , last_name=lname ,phone=(form ), email=(form2 ) , address=(form3), media = (form4))
+        print(new_contact)                     
         new_contact.save()
         
     return render(request, 'accounts/add.html', {})

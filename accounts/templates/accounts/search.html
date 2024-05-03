@@ -106,8 +106,8 @@ td form button:hover {
                             {% endif %}
                         </td>
                         <td>
-                            {% if person.address%}
-                                {{ person.address }}
+                            {% if person.address and person.address.Address_type %}
+                                {{ person.address }} ({{ person.address.Address_type}})
                             {% else %}
                                Not Available
                             {% endif %}
