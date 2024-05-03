@@ -71,7 +71,7 @@ color: #ffffff;
 }
 
 ::placeholder{
-color: whitesmoke;
+color: rgb(255, 255, 255);
 }
 
 .search-bar button img{
@@ -86,9 +86,9 @@ background:  #4CAF50;
 cursor: pointer;
 
 }
-
+/* 
 .hint-text {
   font-size: 14px;
   color: #666;
   margin-top: 10px; /* Add margin to separate from search bar */
-}
+/* } */ 

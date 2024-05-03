@@ -43,10 +43,17 @@ def add(request):
 
 def search(request):
     query = request.GET['query']
-    # per = Person.objects.filter(first_name__icontains=query)
-    per = Person.objects.filter(last_name__icontains=query)
+    per = Person.objects.filter(first_name__icontains=query)
+    # per = Person.objects.filter(last_name__icontains=query)
     
     return render(request, 'accounts/search.html' , {'per' : per})
+
+
+def all(request):
+    per = Person.objects.all()
+    # per = Person.objects.filter(last_name__icontains=query)
+    
+    return render(request, 'accounts/all.html' , {'per' : per})
     
 
 def edit(request):

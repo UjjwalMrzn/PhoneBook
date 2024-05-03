@@ -1,74 +1,6 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
-    
-   *{
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      box-sizing: border-box;
-  }
-  
-  body{
-      display: flex;
-      justify-content: center;
-      align-items: middle;
-      height: 100vh;
-      background: rgb(77, 73, 73);
-  }
+{% extends 'accounts/search.html' %}
 
 
-  h2{
-    color: aliceblue;
-  }
-/* 
-        .container {
-            margin-top: 3rem;
-            
-        } */
-        
-        table {
-            color: #ffffff; /* Set text color to white */
-            background-color: #404040; /* Set table background color */
-        }
-
-        table.table-bordered {
-            align-items: center;
-            justify-content: center;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        table.table-bordered th,
-        table.table-bordered td {
-            border: 1px solid #ffffff; /* Set border color to white */
-            padding: 8px;
-            text-align: center;
-        }
-        td form button {
-    background-color: #4CAF50; /* Green */
-    color: white;
-    padding: 5px 8px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-td form button:hover {
-    background-color: #45a049; /* Darker Green */
-}
-
-
-    </style>
-</head>
-<body>
 {% block content %}
 <div class="cointainer my-3">
     <h2>Search Results:</h2>
@@ -100,41 +32,31 @@ td form button:hover {
                         </td>
                         
                         <td>
-                            {% if person.first_name and person.last_name %}
+                           
                                 {{ person.first_name }} {{ person.last_name }}
-                            {% else %}
-                               Not Available
-                            {% endif %}
+                     
                         </td>
 
                         <td>
-                            {% if person.phone.Number and person.phone.Number_type %}
+                            
                                 {{ person.phone.Number }} ({{ person.phone.Number_type }})
-                            {% else %}
-                               Not Available
-                            {% endif %}
+                          
                         </td>
                         <td>
-                            {% if person.address and person.address.Address_type %}
+                            
                                 {{ person.address }} ({{ person.address.Address_type}})
-                            {% else %}
-                               Not Available
-                            {% endif %}
+                         
                         </td>
                         <td>
-                            {% if person.email and person.email.email_type %}
+                         
                                 {{ person.email }} ({{ person.email.email_type }})
-                            {% else %}
-                               Not Available
-                            {% endif %}
+                         
                         </td>
                         
                         <td>
-                            {% if person.media.User_Name and person.media.Linked_App %}
+                         
                                 {{ person.media.User_Name }} ({{ person.media.Linked_App}})
-                            {% else %}
-                               Not Available
-                            {% endif %}
+                    
                         </td>
                         
                         <td>
@@ -161,7 +83,3 @@ td form button:hover {
     
 </div>
 {% endblock %}
-
-
-</body>
-</html>
