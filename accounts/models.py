@@ -6,7 +6,8 @@ class Phone(models.Model):
     TYPE = (
         ('Home' , 'Home'),
         ('Mobile' , 'Mobile'),
-        ('Office' , 'Office')
+        ('Office' , 'Office'),
+        ('College' , 'College'),
     )
     Number = models.IntegerField( null=True )
     Number_type = models.CharField(max_length=200 , null=True , choices=TYPE )
@@ -18,6 +19,7 @@ class Address(models.Model):
     TYPE = (
         ('Home' , 'Home'),
         ('Office' , 'Office')
+        ('College' , 'College')
     )
     Address = models.CharField(max_length=200 , null=True)
     Address_type= models.CharField(max_length=200 , null=True , choices=TYPE )
@@ -44,7 +46,10 @@ class SocialMedia(models.Model):
         ('Facebook' , 'Facebook'),
         ('Instagram' , 'Instagram'),
         ('Twitter' , 'Twitter'),
-        ('Linkdin' , 'Linkdlin')
+        ('Linkdin' , 'Linkdlin'),
+        ('Snapchat' , 'Snapchat'),
+        ('WeChat' , 'WeChat'),
+        ('Discord' , 'Discord'),
     )
     User_Name = models.CharField(max_length=200 , null=True)
     Linked_App = models.CharField(max_length=200 , null=True , choices=APP )
