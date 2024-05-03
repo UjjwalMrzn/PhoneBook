@@ -2,6 +2,15 @@ from django.db import models
 
 
 # Create your models here.
+
+# class ID(models.Model):
+#     Id = models.AutoField(null=True)
+
+#     def __str__(self):
+#         return str(self.Id)
+    
+
+
 class Phone(models.Model):
     TYPE = (
         ('Home' , 'Home'),
@@ -60,7 +69,7 @@ class SocialMedia(models.Model):
 
 
 class Person(models.Model):
-    #id = models.IntegerField(null=True)
+    id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=200 , null=True)
     last_name = models.CharField(max_length=200 , null=True)
     phone = models.ForeignKey(Phone, null=True , on_delete= models.SET_NULL)
