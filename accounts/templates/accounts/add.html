@@ -81,13 +81,13 @@ h2{
   padding-bottom: 15px;
 }
 
-.input-box input {
-  height: 40px;
-  width: 95%;
-  padding: 0 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
+  /* .input-box input {
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  } */
 
 .input-box label,
 .media-title {
@@ -207,12 +207,13 @@ h2{
           <label class="form-check-label" for="invalidCheck2">
             All above details are correct.
           </label>
-
+          </div>
+          </div>
 
       <div class="button-container">
       <form action="" method="post" style="display: inline;">
         {% csrf_token %}
-        <button type="submit">Add</button> <!-- add button -->
+        <button type="submit" name="button">Add</button> <!-- add button -->
       </form>
     </div>
     

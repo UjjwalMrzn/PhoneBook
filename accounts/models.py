@@ -18,7 +18,7 @@ class Phone(models.Model):
 class Address(models.Model):
     TYPE = (
         ('Home' , 'Home'),
-        ('Office' , 'Office')
+        ('Office' , 'Office'),
         ('College' , 'College')
     )
     Address = models.CharField(max_length=200 , null=True)
