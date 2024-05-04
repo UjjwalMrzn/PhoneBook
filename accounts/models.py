@@ -70,8 +70,8 @@ class SocialMedia(models.Model):
 
 class Person(models.Model):
     id = models.AutoField(primary_key=True)
-    first_name = models.CharField(max_length=200 , null=True)
-    last_name = models.CharField(max_length=200 , null=True)
+    first_name = models.CharField(max_length=20 , null=True)
+    last_name = models.CharField(max_length=15 , null=True)
     phone = models.ForeignKey(Phone, null=True , on_delete= models.SET_NULL)
     address = models.ForeignKey(Address, null=True , on_delete= models.SET_NULL)
     email = models.ForeignKey(Email, null=True , on_delete= models.SET_NULL)

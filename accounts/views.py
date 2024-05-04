@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from .models import Person
 
@@ -59,5 +59,16 @@ def all(request):
 def edit(request):
     return render(request ,'accounts/edit.html')
 
+
+
+
 def delete(request):
-    return render(request, 'accounts/delete.html')
+        return render(request, 'accounts/delete.html')
+
+
+
+
+
+# def delete(request):
+#     per = Person.objects.delete()
+#     return render(request, 'accounts/delete.html')
