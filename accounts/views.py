@@ -58,13 +58,34 @@ def all(request):
     return render(request, 'accounts/all.html' , {'per' : per})
     
 
-def edit(request):
+def edit(request,pk):
 
     detail=Person.objects.get(id=pk)
+ 
     if request.method=='POST':
-        detail.delete()
-        return redirect('/search')
-    return render (request,'accounts/delete.html',{'detail':detail})
+        
+        detail.first_name=request.POST.get("fname")
+        detail.last_name=request.POST.get("lname")
+        detail.phone.Number=request.POST.get("number")
+        detail.phone.Number_type=request.POST.get("ntype")
+        detail.address.Address=request.POST.get("address")
+        detail.address.Address_type=request.POST.get("atype")
+        detail.email.email=request.POST.get("email")
+        detail.email.email_type=request.POST.get("etype")
+        detail.media.User_Name=request.POST.get("uname")
+        detail.media.Linked_App=request.POST.get("mtype")
+    
+        detail.save()
+        detail.phone.save()
+        detail.address.save()
+        detail.email.save()
+        detail.media.save()
+        return redirect('/all')
+
+
+    return render(request,'accounts/edit.html',{'detail': detail})
+
+
     # return render(request ,'accounts/edit.html')
 
 
