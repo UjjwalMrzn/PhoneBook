@@ -45,8 +45,8 @@ def search(request):
     query = request.GET['query']
     per2 = Person.objects.filter(first_name__icontains=query)
     per1 = Person.objects.filter(last_name__icontains=query)
-    # per3 = Person.objects.filter(phone__Number__contains=query)
-    per=per1 or per2 
+    per3 = Person.objects.filter(phone__Number__contains=query)
+    per=per1 or per2 or per3
     # context ={'per' : per} 
     return render(request, 'accounts/search.html' , {'per' : per} )
 
