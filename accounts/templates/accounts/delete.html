@@ -63,13 +63,14 @@
            
         </div>
         <div class="button-container">
-        <form action="/all" style="display: inline;" name="button1">
-            <button type="submit" style="background-color: green;">Cancel</button> <!-- edit button -->
-        </form>
         <form method="post" style="display: inline;" name="button2">
             {% csrf_token %}
-            <button style="background-color: red;">Confirm</button> <!-- Delete button -->
+            <button class="confirm-button" style="background-color: red;">Confirm</button> <!-- Delete button -->
         </form>
+        <form action="/all" style="display: inline;" name="button1">
+            <button type="submit" class="cancel-button"type="submit" style="background-color: green;">Cancel</button> <!-- edit button -->
+        </form>
+        
         </div>
 
 
