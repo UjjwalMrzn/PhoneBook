@@ -65,6 +65,16 @@ td form button:hover {
     background-color: #45a049; /* Darker Green */
 }
 
+.button-container {
+    color: white;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
 
     </style>
 </head>
@@ -137,16 +147,11 @@ td form button:hover {
                             {% endif %}
                         </td>
                         
-                        <td>
-                            <form action="/edit/" method="post" style="display: inline;" name="button1">
-                                {% csrf_token %}
-                                <button type="submit" style="background-color: green;">Edit</button> <!-- edit button -->
-                            </form>
-                            <form action="/delete/" method="post" style="display: inline;" name="button2">
-                                {% csrf_token %}
-                                <button type="submit" style="background-color: red;">Delete</button> <!-- Delete button -->
-                            </form>
-                        </td>
+                        <td><a href="{%url 'edit' person.id %}" style="background-color: green; color: 
+                            white; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Edit</a>
+                            <a href="{%url 'delete' person.id%}" style="background-color: red; 
+                            color: white; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Delete</a></td>
+                        
                     </tr>
                     {% empty %}
                     <tr>

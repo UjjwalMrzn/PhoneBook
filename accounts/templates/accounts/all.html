@@ -19,6 +19,7 @@
                         <th scope="col">Social Media</th>
                         <th scope="col">Action</th> <!-- New column for edit and delete buttons -->
                         
+
                     </tr>
                 </thead>
                 <tbody>
@@ -32,43 +33,47 @@
                         </td>
                         
                         <td>
-                           
+                            {% if person.first_name and person.last_name %}
                                 {{ person.first_name }} {{ person.last_name }}
-                     
+                            {% else %}
+                               Not Available
+                            {% endif %}
                         </td>
 
                         <td>
-                            
+                            {% if person.phone.Number and person.phone.Number_type %}
                                 {{ person.phone.Number }} ({{ person.phone.Number_type }})
-                          
+                            {% else %}
+                               Not Available
+                            {% endif %}
                         </td>
                         <td>
-                            
+                            {% if person.address and person.address.Address_type %}
                                 {{ person.address }} ({{ person.address.Address_type}})
-                         
+                            {% else %}
+                               Not Available
+                            {% endif %}
                         </td>
                         <td>
-                         
+                            {% if person.email and person.email.email_type %}
                                 {{ person.email }} ({{ person.email.email_type }})
-                         
+                            {% else %}
+                               Not Available
+                            {% endif %}
                         </td>
                         
                         <td>
-                         
+                            {% if person.media.User_Name and person.media.Linked_App %}
                                 {{ person.media.User_Name }} ({{ person.media.Linked_App}})
-                    
+                            {% else %}
+                               Not Available
+                            {% endif %}
                         </td>
                         
-                        <td>
-                            <form action="/edit/" method="post" style="display: inline;" name="button1">
-                                {% csrf_token %}
-                                <button type="submit" style="background-color: green;">Edit</button> <!-- edit button -->
-                            </form>
-                            <form action="/delete/" method="post" style="display: inline;" name="button2">
-                                {% csrf_token %}
-                                <button type="submit" style="background-color: red;">Delete</button> <!-- Delete button -->
-                            </form>
-                        </td>
+                        <td><a href="{%url 'edit' person.id %}" style="background-color: green; color: 
+                        white; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Edit</a>
+                        <a href="{%url 'delete' person.id%}" style="background-color: red; 
+                        color: white; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Delete</a></td>
                     </tr>
                     {% empty %}
                     <tr>

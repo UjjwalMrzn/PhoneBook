@@ -59,13 +59,29 @@ def all(request):
     
 
 def edit(request):
-    return render(request ,'accounts/edit.html')
+
+    detail=Person.objects.get(id=pk)
+    if request.method=='POST':
+        detail.delete()
+        return redirect('/search')
+    return render (request,'accounts/delete.html',{'detail':detail})
+    # return render(request ,'accounts/edit.html')
 
 
 
 
-def delete(request):
-        return render(request, 'accounts/delete.html')
+def delete(request,pk):
+    detail=Person.objects.get(id=pk)
+    if request.method=='POST':
+        detail.delete()
+        return redirect('/all')
+    return render (request,'accounts/delete.html',{'detail':detail})
+       
+       
+       
+        # details=Person.objects.get(id=pk)
+        
+        # return render(request, 'accounts/delete.html' ,{'details':details})
 
 
 

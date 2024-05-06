@@ -1,0 +1,94 @@
+{% extends 'accounts/search.html' %}
+
+
+{% block content %}
+
+<div class="cointainer my-3">
+    <h2>Search Results:</h2>
+    
+
+<br>
+        <div class="table table-bordered">
+            <table>
+                    <thead-light>
+                    <tr>
+
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Social Media</th>
+                       
+                        
+                    </tr>
+                </thead>
+                <tbody>
+
+                    
+                    <tr>
+                        <!-- <td>{{ person.first_name}} {{ person.last_name }}</td> -->
+                        
+                     
+                        
+                        <td>
+                          
+                                {{ detail.first_name }} {{ detail.last_name }}
+                        
+                        </td>
+
+                        <td>
+                         
+                                {{ detail.phone.Number }} ({{ detail.phone.Number_type }})
+                        
+                        </td>
+                        <td>
+                                {{ detail.address }} ({{ detail.address.Address_type}})
+                          
+                        </td>
+                        <td>
+                                {{ detail.email }} ({{ detail.email.email_type }})
+                          
+                        </td>
+                        <td>
+                             {{ detail.media.User_Name }} ({{ detail.media.Linked_App}})
+                
+                        </td>
+                        
+                     
+                   
+                  
+           
+                </tbody>
+            </table>
+           
+        </div>
+        <div class="button-container">
+        <form action="/all" style="display: inline;" name="button1">
+            <button type="submit" style="background-color: green;">Cancel</button> <!-- edit button -->
+        </form>
+        <form method="post" style="display: inline;" name="button2">
+            {% csrf_token %}
+            <button style="background-color: red;">Confirm</button> <!-- Delete button -->
+        </form>
+        </div>
+
+
+
+<!--         
+        <div class="button-container">
+            <form method="POST" style="display: inline;" name="button1">
+                {% csrf_token %}
+                <a ><button style="background-color: red;">Confirm</button></a>
+            </form>
+            <form action="/all" style="display: inline;" name="button2">
+            <a ><button style="background-color: green;">Cancel</button></a>
+        </form>
+         </div> -->
+        
+    </div>
+    
+</div>
+
+{% endblock %}
+
+

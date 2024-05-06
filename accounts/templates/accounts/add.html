@@ -143,8 +143,9 @@ h2{
           
           <div class="input-box">
             <div class="select-box">
-            <select id="Number_type" name="ntype">
+            <select id="Number_type" name="ntype" required>
               
+              <option value="">Choose an option</option>
               <option value="Home">Home</option>
               <option value="Mobile">Mobile</option>
               <option value="Office">Office</option>
@@ -161,8 +162,9 @@ h2{
           <input type="text" placeholder="Enter Address" name="address" required>
           <div class="input-box">
           <div class="select-box">
-            <select id="address_type" name="atype">
+            <select id="address_type" name="atype" required>
               
+              <option value="">Choose an option</option>
               <option value="Home">Home</option>
               <option value="Office">Office</option>
               <option value="College">College</option>
@@ -173,11 +175,12 @@ h2{
 
         <div class="input-box">
           <label for="email">Email</label>
-          <input type="email" placeholder="Enter email" name="email" required>
+          <input type="email" placeholder="Enter email" name="email">
           <div class="input-box">
             <div class="select-box">
             <select id="email_type" name="etype">
               
+              <option value="-">Choose an option</option>
               <option value="Home">Home</option>
               <option value="Personal">Personal</option>
               <option value="Office">Office</option>
@@ -190,12 +193,13 @@ h2{
 
         <div class="input-box">
           <label for="username">User Name</label>
-          <input type="username" placeholder="Enter @Username "  name="uname" required value="@">
+          <input type="username" placeholder="Enter @Username "  name="uname" >
         
         <div class="input-box">
         <div class="select-box">
         <select id="socialmedia" name="mtype">
           
+          <option value="-">Choose an option</option>
           <option value="Instagram">Instagram</option>
           <option value="Facebook">Facebook</option>
           <option value="Linkedin">Linkedin</option>
