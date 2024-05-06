@@ -132,8 +132,8 @@ td form button:hover {
                             {% endif %}
                         </td>
                         <td>
-                            {% if person.email and person.email.email_type %}
-                                {{ person.email }} ({{ person.email.email_type }})
+                            {% if person.email.email and person.email.email_type %}
+                                {{ person.email.email }} ({{ person.email.email_type }})
                             {% else %}
                                Not Available
                             {% endif %}
