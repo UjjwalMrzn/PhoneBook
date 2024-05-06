@@ -43,10 +43,12 @@ def add(request):
 
 def search(request):
     query = request.GET['query']
-    per = Person.objects.filter(first_name__icontains=query)
-    # per = Person.objects.filter(last_name__icontains=query)
-    
-    return render(request, 'accounts/search.html' , {'per' : per})
+    per2 = Person.objects.filter(first_name__icontains=query)
+    per1 = Person.objects.filter(last_name__icontains=query)
+    # per3 = Person.objects.filter(phone__Number__contains=query)
+    per=per1 or per2 
+    # context ={'per' : per} 
+    return render(request, 'accounts/search.html' , {'per' : per} )
 
 
 def all(request):
