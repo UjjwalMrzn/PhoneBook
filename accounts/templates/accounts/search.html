@@ -141,7 +141,7 @@ td form button:hover {
                         
                         <td>
                             {% if person.media.User_Name and person.media.Linked_App %}
-                                {{ person.media.User_Name }} ({{ person.media.Linked_App}})
+                                @{{ person.media.User_Name }} ({{ person.media.Linked_App}})
                             {% else %}
                                Not Available
                             {% endif %}
@@ -155,7 +155,7 @@ td form button:hover {
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="6" >No records found.</td>
+                        <td colspan="7" >No records found.</td>
                     </tr>
                     {% endfor %}
                 </tbody>
