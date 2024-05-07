@@ -48,7 +48,8 @@ def search(request):
     per3 = Person.objects.filter(phone__Number__contains=query)
     per4 = Person.objects.filter(address__Address__contains=query)
     per5 = Person.objects.filter(email__email__contains=query)
-    per=per1 or per2 or per3 or per4 or per5 
+    per6 = Person.objects.filter(media__User_Name__contains=query)
+    per=per1 or per2 or per3 or per4 or per5 or per6
     # context ={'per' : per} 
     return render(request, 'accounts/search.html' , {'per' : per} )
 
