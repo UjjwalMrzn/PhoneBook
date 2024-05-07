@@ -112,3 +112,15 @@ def delete(request,pk):
 # def delete(request):
 #     per = Person.objects.delete()
 #     return render(request, 'accounts/delete.html')
+
+
+
+# user log in and registration
+
+def register(request):
+    return render(request , 'accounts/register.html' )
+
+
+
+def login(request):
+    return render(request, 'accounts/login.html')
