@@ -10,7 +10,7 @@ urlpatterns = [
     path('edit/<int:pk>', views.edit, name='edit' ),
     
     #login and register
-    path('register/', views.register),
-    path('login/', views.login),
+    path('register/', views.register , name='register'),
+    path('login/', views.login , name='login'),
 
 ]

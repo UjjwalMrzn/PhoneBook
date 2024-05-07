@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from .models import Person
-
+from django.contrib.auth.forms import UserCreationForm
 
 
 
@@ -47,7 +47,8 @@ def search(request):
     per1 = Person.objects.filter(last_name__icontains=query)
     per3 = Person.objects.filter(phone__Number__contains=query)
     per4 = Person.objects.filter(address__Address__contains=query)
-    per=per1 or per2 or per3 or per4
+    per5 = Person.objects.filter(email__email__contains=query)
+    per=per1 or per2 or per3 or per4 or per5 
     # context ={'per' : per} 
     return render(request, 'accounts/search.html' , {'per' : per} )
 
@@ -118,7 +119,15 @@ def delete(request,pk):
 # user log in and registration
 
 def register(request):
-    return render(request , 'accounts/register.html' )
+    form = UserCreationForm()
+
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form':form}
+    return render(request , 'accounts/register.html' , context)
 
 
 
