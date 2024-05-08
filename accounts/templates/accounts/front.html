@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+</head>
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/forest.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-container{
+width: 100%;
+min-height: 80vh;
+padding: 5%;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+
+}
+
+
+/* .button1{
+border: none;
+border-radius: 10px ;
+background-color: #45a049 ;
+
+} */
+
+
+.login-button, .signup-button {
+    background-color: #45a049;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+
+</style>
+
+
+
+
+
+<body>
+
+    <div class="btn-container">
+        {% csrf_token %}
+    
+        <form action="/login" name="login_btn">
+            <button class="login-button"  style="background-color: #45a049;">Login</button>
+        </form>
+        <form action="/register" name="register_btn">
+            <button class="signup-button"  style="background-color: #45a049;">Signup</button>
+        </form>
+     
+        </div>
+
+    </div>
+
+
+
+    
+</body>
+</html>

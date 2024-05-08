@@ -10,6 +10,9 @@ from django.contrib import messages
 from .models import *
 from .forms import CreateUserForm
 
+def front(request):
+    return render(request , 'accounts/front.html')
+
 def home(request):
     return render(request, 'accounts/home.html')
 
