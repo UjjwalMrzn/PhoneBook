@@ -35,6 +35,10 @@
         </form>
        </div>
 
+       {% for message in messages %}
+        <P id="messages">{{message}}</P>
+       {% endfor %}
+
        <div class="mt-4">
 					<div class="d-flex justify-content-center links"  style="color: white;">
 						Don't have an account? <a href="{% url 'register' %}" class="ml-2" style="color: rgb(92, 155, 238);">Sign Up</a>
