@@ -1,0 +1,71 @@
+{% extends 'accounts/register.html' %}
+
+{% block content %}
+
+
+<body>
+    <div class="cointainer">
+        <form action="" method="POST">
+            {% csrf_token %}
+        
+        <h2>LOGIN</h2>
+        <div class="content">
+            <div class="input-box">
+                <label for="username">Username</label>
+                <input type="text" placeholder="Enter your username" required>
+              </div>
+       
+        
+            <div class="input-box">
+                <label for="password1">Password</label>
+                <input type="password" placeholder="Enter your password" required>
+              </div>
+              
+<!--    
+        {% for fields in form %}
+        {{fields.label}}
+        {{fields}}
+        {% endfor %}
+         -->
+      
+
+       <div class="btn_container">
+        <form action="/home">
+        <button type="submit" value="submit">Login</button>
+        </form>
+       </div>
+
+       <div class="mt-4">
+					<div class="d-flex justify-content-center links"  style="color: white;">
+						Don't have an account? <a href="{% url 'register' %}" class="ml-2" style="color: rgb(92, 155, 238);">Sign Up</a>
+					</div>
+			
+            </form>
+
+    </div>
+
+
+
+
+
+</body>
+
+                    <!-- /* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
+    //We start indexing at one because CSRF_token is considered and input field 
+     */
+
+    //Query All input fields
+//     var form_fields = document.getElementsByTagName('input')
+//     form_fields[1].placeholder='Username..';
+
+//     form_fields[3].placeholder='Enter password...';
+  
+
+
+//     for (var field in form_fields){	
+//         form_fields[field].className += ' form-control'
+//     }*/ -->
+
+
+
+{% endblock %}

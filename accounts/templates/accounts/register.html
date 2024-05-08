@@ -75,12 +75,16 @@
 
 
     </style>
+
+    {% block content %}
+
+
 	<body>
         <div class="cointainer">
             <form action="" method="POST">
                 {% csrf_token %}
             
-            <h2>Register</h2>
+            <h2>REGISTER</h2>
             <div class="content">
                 <div class="input-box">
                     <label for="username">Username</label>
@@ -112,9 +116,18 @@
            <div class="btn_container">
             <button type="submit" value="submit">Register</button>
            </div>
+
+          
                 </form>
 
         </div>
+
+        {{form.errors}}
+
+        <div class="mt-4">
+            <div class="d-flex justify-content-center links"  style="color: white;">
+                Already have an account ? <a href="{% url 'login' %}" class="ml-2" style="color: rgb(92, 155, 238);">Log In</a>
+            </div>
 
 
 
@@ -138,6 +151,8 @@
 			form_fields[field].className += ' form-control'
 		}
 	</script>
+
+    {% endblock %}
 </body>
 </html>
 
