@@ -8,6 +8,8 @@ from django.contrib.auth import authenticate, login, logout
 
 from django.contrib import messages
 
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 from .models import *
@@ -16,9 +18,12 @@ from .forms import CreateUserForm
 def front(request):
     return render(request , 'accounts/front.html')
 
+@login_required(login_url='login')
 def home(request):
     return render(request, 'accounts/home.html')
 
+
+@login_required(login_url='login')
 def add(request):
    
     if request.method == 'POST':
@@ -48,6 +53,8 @@ def add(request):
         
     return render(request, 'accounts/add.html', {})
 
+
+@login_required(login_url='login')
 def search(request):
     query = request.GET['query']
     per2 = Person.objects.filter(first_name__icontains=query)
@@ -61,6 +68,8 @@ def search(request):
     return render(request, 'accounts/search.html' , {'per' : per} )
 
 
+
+@login_required(login_url='login')
 def all(request):
     per = Person.objects.all()
     # per = Person.objects.filter(last_name__icontains=query)
@@ -68,6 +77,8 @@ def all(request):
     return render(request, 'accounts/all.html' , {'per' : per})
     
 
+
+@login_required(login_url='login')
 def edit(request,pk):
 
     detail=Person.objects.get(id=pk)
@@ -100,7 +111,7 @@ def edit(request,pk):
 
 
 
-
+@login_required(login_url='login')
 def delete(request,pk):
     detail=Person.objects.get(id=pk)
     if request.method=='POST':
