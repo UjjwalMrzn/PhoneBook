@@ -14,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 from .models import *
 from .forms import CreateUserForm
+from .decorators import unauthenticated_user
 
 def front(request):
     return render(request , 'accounts/front.html')
@@ -137,10 +138,8 @@ def delete(request,pk):
 
 # user log in and registration
 
+@unauthenticated_user
 def register(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
 
         form = CreateUserForm()
 
@@ -157,12 +156,8 @@ def register(request):
         return render(request , 'accounts/register.html' , context)
 
 
-
+@unauthenticated_user
 def loginpage(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else: 
-
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')
@@ -182,3 +177,10 @@ def loginpage(request):
 def logoutuser(request):
     logout(request)
     return redirect('login') 
+
+
+
+# UserPage
+
+def user(request):
+    return render(request, 'accounts/user.html')
