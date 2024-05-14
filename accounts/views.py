@@ -9,22 +9,26 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 
 
 # Create your views here.
 from .models import *
 from .forms import CreateUserForm
-from .decorators import unauthenticated_user
+from .decorators import unauthenticated_user, allowed_users, admin_only
 
 def front(request):
     return render(request , 'accounts/front.html')
 
 @login_required(login_url='login')
+@admin_only
 def home(request):
     return render(request, 'accounts/home.html')
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
+
 def add(request):
    
     if request.method == 'POST':
@@ -80,6 +84,8 @@ def all(request):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
+
 def edit(request,pk):
 
     detail=Person.objects.get(id=pk)
@@ -113,6 +119,8 @@ def edit(request,pk):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
+
 def delete(request,pk):
     detail=Person.objects.get(id=pk)
     if request.method=='POST':
@@ -146,8 +154,11 @@ def register(request):
         if request.method == "POST":
             form = CreateUserForm(request.POST)
             if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
+                user = form.save()
+                username = form.cleaned_data.get('username')
+
+                group = Group.objects.get(name='customer')
+                user.groups.add(group)
                 messages.success(request, 'An account was created for ' + user)
 
                 return redirect('login')
