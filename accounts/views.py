@@ -28,7 +28,6 @@ def home(request):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
-
 def add(request):
    
     if request.method == 'POST':
@@ -58,7 +57,7 @@ def add(request):
         
     return render(request, 'accounts/add.html', {})
 
-
+ 
 @login_required(login_url='login')
 def search(request):
     query = request.GET['query']
@@ -157,9 +156,9 @@ def register(request):
                 user = form.save()
                 username = form.cleaned_data.get('username')
 
-                group = Group.objects.get(name='customer')
+                group = Group.objects.get(name='users')
                 user.groups.add(group)
-                messages.success(request, 'An account was created for ' + user)
+                messages.success(request, 'An account was created for ' + username)
 
                 return redirect('login')
 
