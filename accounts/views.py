@@ -17,6 +17,7 @@ from .models import *
 from .forms import CreateUserForm
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
+
 def front(request):
     return render(request , 'accounts/front.html')
 
@@ -191,6 +192,7 @@ def logoutuser(request):
 
 
 # UserPage
+@login_required(login_url='login')
 
 def user(request):
     return render(request, 'accounts/user.html')
