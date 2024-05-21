@@ -40,16 +40,25 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 20px;
+    padding: 20px 15px;
     width: 100%;
     background: rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
-    backdrop-filter: blur(4px) saturate(180%);
+    backdrop-filter: blur(4px) saturate(200%);
 }
 
-.logo {
-    font-size: 24px;
+.logo img {
+    height: 60px; /* Adjust the height as needed */
+    width: auto;
+    padding-left: 10px;
+}
+
+.contain{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-right: 10px;
 }
 
 .nav-links {
@@ -72,7 +81,7 @@ nav {
 
 
 
-
+/* 
 .btn-container{
 width: 100%;
 min-height: 80vh;
@@ -82,7 +91,7 @@ align-items: center;
 justify-content: center;
 gap: 8px;
 
-}
+} */
 
 
 /* .button1{
@@ -96,7 +105,7 @@ background-color: #45a049 ;
 .login-button, .signup-button {
     background-color: #45a049;
     color: white;
-    padding: 15px 25px;
+    padding: 8px 15px;
     border: none;
     cursor: pointer;
     border: none;
@@ -112,28 +121,24 @@ background-color: #45a049 ;
 
 <body>
     <nav>
-        <div class="logo">Logo</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="btn-container">
-        {% csrf_token %}
+        <div class="logo"><img src="/static/pip.png" alt="Logo"></div>
+        <div class="contain">
+            {% csrf_token %}
     
-        <form action="/login" name="login_btn">
-            <button class="login-button"  style="background-color: #45a049; font-size: 18px;">Login</button>
-        </form>
-        <form action="/register" name="register_btn">
-            <button class="signup-button"  style="background-color: #45a049; font-size: 18px;">Signup</button>
-        </form>
+            <form action="/login" name="login_btn">
+                <button class="login-button"  style="background-color: #45a049; font-size: 18px;">Login</button>
+            </form>
+            <form action="/register" name="register_btn">
+                <button class="signup-button"  style="background-color: #45a049; font-size: 18px;">Signup</button>
+            </form></div>
      
         </div>
+    </nav>
 
-    </div>
+    <!-- <div class="btn-container">
+        
+
+    </div> -->
 
 
 
