@@ -24,10 +24,54 @@ body {
     background-image: url("/static/12.jpg");
     background-position: center;
     background-size: cover;
+  
+}
+
+/* nav-bar */
+/* Resetting default margin and padding */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
-    justify-content: center;
+    backdrop-filter: blur(4px) saturate(180%);
 }
+
+.logo {
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    color: #ccc;
+}
+
+
+
 
 .btn-container{
 width: 100%;
@@ -67,6 +111,15 @@ background-color: #45a049 ;
 
 
 <body>
+    <nav>
+        <div class="logo">Logo</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
     <div class="btn-container">
         {% csrf_token %}
