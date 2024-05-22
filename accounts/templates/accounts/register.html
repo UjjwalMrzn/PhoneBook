@@ -83,12 +83,19 @@
 .btn_container button{
     width: 100%;
     margin-top: 8px;
-    background-color: #4CAF50; /* Green */
+    background-color: #5fa7d5; /* Green */
+    font-size: 15px; /*text size*/
     color: white;
     padding: 8px 12px;
-    border: none;
+    border: 2px solid #5fa7d5;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn_container button:hover{
+  background-color: transparent;
+
 }
 
 #messages{
