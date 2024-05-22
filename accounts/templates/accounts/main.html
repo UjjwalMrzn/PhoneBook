@@ -94,6 +94,11 @@ nav {
     margin: 10px;
 }
 
+.btn-option:hover{
+  background-color: #45a049; /* Darker Green */
+}
+
+
 
 
 
@@ -114,6 +119,30 @@ nav {
   margin-right: 20px;
     
 }
+
+
+.logout-link {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+
+.logout-link::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s;
+}
+
+.logout-link:hover::before {
+    width: 100%;
+}
+
+
 
 
 
@@ -164,6 +193,9 @@ nav {
   height: 60px;
   background:  #4CAF50;
   cursor: pointer;
+}
+.search-bar button:hover{
+  background-color: #45a049; /* Darker Green */
 }
 
 
