@@ -112,7 +112,10 @@
 	<body>
     
     <div class="logo">
+      {% csrf_token %}
+      <a href="/">  
       <img src="/static/pip.png" alt="Logo">
+      </a>
     </div>
 
         <div class="cointainer">
