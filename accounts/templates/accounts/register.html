@@ -18,9 +18,10 @@
         height: 50vw;
         margin: 0;
         padding: 0;
-        background-image: url("/static/blue-gradient.png");
+        background-image: url("/static/steel.jpg");
         background-position: center;
         background-size: cover;
+        /* backdrop-filter: saturate(50%); */
        
     }
 
@@ -76,6 +77,7 @@
     margin: 5px 0;
     color:#ffffff;
     font-weight: bold;
+    padding-top: 5px;
 }
 
 .btn_container button{
@@ -125,10 +127,12 @@
             
             <h2>Sign Up</h2>
             <div class="content">
+              
                 <div class="input-box">
                     <label for="username">Username</label>
                     {{form.username}}
                   </div>
+                  
                 <div class="input-box">
                     <label for="email">Email</label>
                     {{form.email}}
@@ -138,6 +142,7 @@
                     <label for="password1">Password</label>
                     {{form.password1}}
                   </div>
+                  
                 <div class="input-box">
                     <label for="password2">Confirm Password</label>
                     {{form.password2}}
@@ -179,11 +184,19 @@
 		 */
 
 		//Query All input fields
-		var form_fields = document.getElementsByTagName('input')
-		form_fields[1].placeholder='Username';
-		form_fields[2].placeholder='Email';
-		form_fields[3].placeholder='Enter Password';
-		form_fields[4].placeholder='Re-enter Password';
+
+		// Get the input fields by their unique classes
+var usernameField = document.querySelector('.input-box input[name="username"]');
+var emailField = document.querySelector('.input-box input[name="email"]');
+var password1Field = document.querySelector('.input-box input[name="password1"]');
+var password2Field = document.querySelector('.input-box input[name="password2"]');
+
+// Set placeholders for each field
+if (usernameField) usernameField.placeholder = 'Username';
+if (emailField) emailField.placeholder = 'Email';
+if (password1Field) password1Field.placeholder = 'Enter Password';
+if (password2Field) password2Field.placeholder = 'Re-enter Password';
+
 
 
 		for (var field in form_fields){	
