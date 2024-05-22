@@ -87,17 +87,20 @@ nav {
     display: inline-block;
     text-decoration: none;
     background-color: transparent;
-    border: 2px solid #fff ;
+    border: 2px solid #89CFF0 ;
     border-radius: 10px;
     color: white;
     padding: 10px 20px;
     font-weight: bold;
     cursor: pointer;
     margin: 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .btn-option:hover{
-  background-color: #419dc7; /* Darker Green */
+  background-color: #5fa7d5;
+    color: #fff;
+    backdrop-filter: blur(1px) saturate(180%);
 }
 
 
@@ -196,6 +199,7 @@ nav {
   background:  #419dc7;
   cursor: pointer;
   backdrop-filter: blur(4px) saturate(50%);
+  transition: background-color 0.3s, color 0.3s;
 
 }
 .search-bar button:hover{
