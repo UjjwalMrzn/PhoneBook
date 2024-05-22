@@ -17,6 +17,9 @@ from .models import *
 from .forms import CreateUserForm
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
+def navbar(request):
+    return render(request, 'accounts/navbar.html')
+
 
 def front(request):
     return render(request , 'accounts/front.html')
