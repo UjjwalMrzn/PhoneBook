@@ -1,6 +1,12 @@
 {% extends 'accounts/main.html' %}
 
 {% block content %}
+    <div class="logo">
+        {% csrf_token %}
+        <a href="/home">  
+        <img src="/static/pip.png" alt="Logo">
+        </a>
+</div>
     <div class="container">
         <form action="/search" method="get" class="search-bar">
             <input type="text" placeholder="Search" name="query" id="search" required>
