@@ -21,7 +21,7 @@ body {
     height: 50vw;
     margin: 0;
     padding: 0;
-    background-image: url("/static/bc.jpg");
+    background-image: url("/static/blue-gradient.png");
     background-position: center;
     background-size: cover;
   
@@ -139,15 +139,20 @@ background-color: #45a049 ;
 
 <body>
     <nav>
-        <div class="logo"><img src="/static/pip.png" alt="Logo"></div>
+        <div class="logo">
+            {% csrf_token %}
+            <a href="/">  
+            <img src="/static/pip.png" alt="Logo">
+            </a>
+    </div>
         <div class="contain">
             {% csrf_token %}
     
             <form action="/login" name="login_btn">
-                <button class="login-button"  style="background-color: transparent; border: 2px solid #45a049; font-size: 18px; backdrop-filter: blur(1px) saturate(180%);">Login</button>
+                <button class="login-button"  style="background-color: transparent; border: 2px solid #89CFF0	; font-size: 18px; backdrop-filter: blur(1px) saturate(180%);">Login</button>
             </form>
             <form action="/register" name="register_btn">
-                <button class="signup-button"  style="background-color: transparent; border: 2px solid #45a049; font-size: 18px; backdrop-filter: blur(1px) saturate(180%);">Signup</button>
+                <button class="signup-button"  style="background-color: transparent; border: 2px solid #89CFF0	; font-size: 18px; backdrop-filter: blur(1px) saturate(180%);">Signup</button>
             </form></div>
      
         </div>
