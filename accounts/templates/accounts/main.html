@@ -86,16 +86,18 @@ nav {
 .btn-option {
     display: inline-block;
     text-decoration: none;
-    background-color: #4CAF50;
+    background-color: transparent;
+    border: 2px solid #fff ;
+    border-radius: 10px;
     color: white;
     padding: 10px 20px;
-    border-radius: 5px;
+    
     cursor: pointer;
     margin: 10px;
 }
 
 .btn-option:hover{
-  background-color: #45a049; /* Darker Green */
+  background-color: #419dc7; /* Darker Green */
 }
 
 
@@ -188,14 +190,16 @@ nav {
 
 .search-bar button {
   border: 0;
-  border-radius: 50%;
+  border-radius: 60px;
   width: 60px;
   height: 60px;
-  background:  #4CAF50;
+  background:  #419dc7;
   cursor: pointer;
+  backdrop-filter: blur(4px) saturate(50%);
+
 }
 .search-bar button:hover{
-  background-color: #45a049; /* Darker Green */
+  background-color: transparent; /* Darker Green */
 }
 
 
