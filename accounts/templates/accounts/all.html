@@ -2,6 +2,46 @@
 
 
 {% block content %}
+
+
+<!-- navbar -->
+<nav>
+    <div class="logo">
+        {% csrf_token %}
+        <a href="/home">  
+        <img src="/static/pip.png" alt="Logo">
+        </a>
+  </div>
+  
+  <img src="/static/pppp.png" class="user-pic" onclick="toggleMenu()">
+  
+  
+  <div class="submenu-wrap" id="subMenu">
+      <div class="submenu">
+          <a href="#" class="submenu-link">
+              <img src="/static/profile.png"  alt="Profile">
+              <p>Edit Profile</p>
+              <!-- <span>></span> -->
+          </a>
+  
+          <a href="#" class="submenu-link">
+              <img src="/static/setting.png" alt="Settings">
+              <p>Settings</p>
+              <!-- <span>></span> -->
+          </a>
+  
+          <a href="{% url 'logout' %}" class="submenu-link">
+              <img src="/static/logout.png" alt="Logout">
+              <p>Logout</p>
+              <!-- <span>></span> -->
+          </a>
+      </div>
+  </div>
+  
+  </nav>
+
+
+  <div class="box">
 <div class="cointainer my-3">
     <h2>Search Results:</h2>
     
@@ -70,10 +110,10 @@
                             {% endif %}
                         </td>
                         
-                        <td><a href="{%url 'edit' person.id %}" style="background-color: green; color: 
-                        white; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Edit</a>
-                        <a href="{%url 'delete' person.id%}" style="background-color: red; 
-                        color: white; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Delete</a></td>
+                        <td>
+                            <a href="{%url 'edit' person.id %}" class="action-btn1">Edit</a>
+                            <a href="{%url 'delete' person.id%}" class="action-btn2">Delete</a></td>
+                        
                     </tr>
                     {% empty %}
                     <tr>
@@ -87,4 +127,24 @@
     </div>
     
 </div>
+
+<script>
+    let subMenu = document.getElementById("subMenu");
+    let userPic = document.querySelector(".user-pic");
+
+    function toggleMenu() {
+        subMenu.classList.toggle("open-menu");
+    }
+
+    // Function to hide submenu when clicking outside
+    function handleClickOutside(event) {
+        if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
+            subMenu.classList.remove("open-menu");
+        }
+    }
+
+    // Event listener to handle clicks on the body
+    document.body.addEventListener("click", handleClickOutside);
+</script>
+
 {% endblock %}

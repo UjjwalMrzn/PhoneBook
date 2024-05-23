@@ -285,6 +285,8 @@ td form button:hover {
 </head>
 <body>
 {% block content %}
+
+<!-- navbar -->
 <nav>
     <div class="logo">
         {% csrf_token %}
@@ -397,7 +399,7 @@ td form button:hover {
                     </tr>
                     {% empty %}
                     <tr>
-                        <!-- <td colspan="7" >No records found.</td> -->
+                        <td colspan="7" >No records found.</td>
                     </tr>
                     {% endfor %}
                 </tbody>
