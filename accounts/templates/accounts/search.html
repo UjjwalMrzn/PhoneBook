@@ -129,6 +129,44 @@ td form button:hover {
     background-color: #45a049; /* Darker Green */
 }
 
+/* action button */
+.action-btn1{
+    background-color: #5fa7d5;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #5fa7d5;
+    text-decoration: none;
+}
+
+.action-btn1:hover{
+    background-color: #45a049;
+    text-decoration: none;
+    color: white;
+    border: 2px solid #45a049;
+
+}
+
+
+
+.action-btn2{
+    background-color: #5fa7d5;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #5fa7d5;
+    text-decoration: none;
+}
+
+.action-btn2:hover{
+    background-color: red;
+    text-decoration: none;
+    color: white;
+    border: 2px solid red;
+}
+
+
+
 .button-container {
     display: flex;
     justify-content: center;
@@ -366,10 +404,8 @@ td form button:hover {
                             {% endif %}
                         </td>
                         
-                        <td><a href="{%url 'edit' person.id %}" style="background-color: green; color: 
-                            white; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Edit</a>
-                            <a href="{%url 'delete' person.id%}" style="background-color: red; 
-                            color: white; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Delete</a></td>
+                        <td><a href="{%url 'edit' person.id %}" class="action-btn1">Edit</a>
+                            <a href="{%url 'delete' person.id%}" class="action-btn2">Delete</a></td>
                         
                     </tr>
                     {% empty %}
