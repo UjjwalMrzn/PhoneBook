@@ -4,6 +4,44 @@
 {% block content %}
 
 
+<!-- navbar -->
+<nav>
+  <div class="logo">
+      {% csrf_token %}
+      <a href="/home">  
+      <img src="/static/pip.png" alt="Logo">
+      </a>
+</div>
+
+<img src="/static/pppp.png" class="user-pic" onclick="toggleMenu()">
+
+
+<div class="submenu-wrap" id="subMenu">
+    <div class="submenu">
+        <a href="#" class="submenu-link">
+            <img src="/static/profile.png"  alt="Profile">
+            <p>Edit Profile</p>
+            <!-- <span>></span> -->
+        </a>
+
+        <a href="#" class="submenu-link">
+            <img src="/static/setting.png" alt="Settings">
+            <p>Settings</p>
+            <!-- <span>></span> -->
+        </a>
+
+        <a href="{% url 'logout' %}" class="submenu-link">
+            <img src="/static/logout.png" alt="Logout">
+            <p>Logout</p>
+            <!-- <span>></span> -->
+        </a>
+    </div>
+</div>
+
+</nav>
+
+
+<div class="box">
 <div class="cointainer">
     <form action="" method="post">
       {% csrf_token %}
@@ -117,7 +155,7 @@
         </button>
       </div> -->
     </form>
-    
+  </div>
   </div>
   
 
