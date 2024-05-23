@@ -17,17 +17,80 @@
   }
   
   body{
-      display: flex;
-      justify-content: center;
-      align-items: middle;
-      height: 100vh;
-      background: rgb(77, 73, 73);
+    width: 100vw;
+    height: 50vw;
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/image.png");
+    background-position: center;
+    background-size: cover;
+  
   }
 
 
   h2{
     color: aliceblue;
   }
+
+/* navbar */
+  
+nav {
+    /* background-color: #333; */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    width: 100%;
+    /* background: rgba(255, 255, 255, 0.2); */
+    align-items: center;
+    /* backdrop-filter: blur(4px) saturate(200%); */
+    margin-top: 15px;
+    position: relative;
+}
+
+.logo img {
+    height: 60px; /* Adjust the height as needed */
+    width: auto;
+    padding-left: 50px;
+}
+
+.contain{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-right: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    color: #ccc;
+}
+
+
+/* container box */
+.box{
+  display: flex;
+      justify-content: center;
+      /* align-items: center; */
+      height: 600px;
+}
+
+
+
 /* 
         .container {
             margin-top: 3rem;
@@ -36,7 +99,8 @@
         
         table {
             color: #ffffff; /* Set text color to white */
-            background-color: #404040; /* Set table background color */
+            background-color: transparent; /* Set table background color */
+            backdrop-filter: blur(6px);
         }
 
         table.table-bordered {
@@ -94,10 +158,147 @@ td form button:hover {
 
 
 
+
+/* profile */
+.user-pic {
+        width: 70px; /* Adjust size as needed */
+        height: 70px;
+        margin-right: 10px;
+        margin-bottom: 3px;
+        position: absolute;
+        top: 18px; /* Adjust top position as needed */
+        right: 25px; /* Adjust right position as needed */
+        cursor: pointer;
+    }
+
+
+    .user-pic:hover{
+      transform: scale(1.1);
+
+}
+
+
+
+
+/* dropdown */
+.submenu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    width: 200px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+
+}
+
+.submenu-wrap.open-menu{
+    max-height: 400px;
+}
+
+
+
+
+
+.submenu{
+  background: #ffffff;
+    padding: 20px;
+    margin: 10px;
+    /* border: 2px solid #5fa7d5; */
+    border-radius: 10px;
+}
+
+.submenu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.submenu-link p{
+    width: 100%;
+    /* transition: font-weight 0.3s; */
+}
+
+.submenu-link img{
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+    /* transition: transform 0.3s; */
+}
+
+
+
+/* 
+.submenu-link span{
+    font-size: 18px;
+    transition: transfrom 0.5s;
+}
+
+.submenu-link:hover span{
+    transform: translateX(5px);
+} */
+
+.submenu-link:hover p{
+    font-weight: 600;
+
+}
+.submenu-link img:hover{
+  transform: scale(1.1);
+
+}
+
+
+
+
+
     </style>
 </head>
 <body>
 {% block content %}
+
+<!-- navbar -->
+<nav>
+    <div class="logo">
+        {% csrf_token %}
+        <a href="/home">  
+        <img src="/static/pip.png" alt="Logo">
+        </a>
+  </div>
+  
+  <img src="/static/pppp.png" class="user-pic" onclick="toggleMenu()">
+  
+  
+  <div class="submenu-wrap" id="subMenu">
+      <div class="submenu">
+          <a href="#" class="submenu-link">
+              <img src="/static/profile.png"  alt="Profile">
+              <p>Edit Profile</p>
+              <!-- <span>></span> -->
+          </a>
+  
+          <a href="#" class="submenu-link">
+              <img src="/static/setting.png" alt="Settings">
+              <p>Settings</p>
+              <!-- <span>></span> -->
+          </a>
+  
+          <a href="{% url 'logout' %}" class="submenu-link">
+              <img src="/static/logout.png" alt="Logout">
+              <p>Logout</p>
+              <!-- <span>></span> -->
+          </a>
+      </div>
+  </div>
+  
+  </nav>
+
+
+
+<div class="box">
 <div class="cointainer my-3">
     <h2>Search Results:</h2>
     
@@ -182,6 +383,7 @@ td form button:hover {
         </div>
     </div>
     
+</div>
 </div>
 {% endblock %}
 
