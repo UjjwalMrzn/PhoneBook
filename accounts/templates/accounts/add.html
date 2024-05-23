@@ -18,13 +18,64 @@
       box-sizing: border-box;
   }
   
-  body{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: rgb(77, 73, 73);
-  }
+body {
+    width: 100vw;
+    height: 50vw;
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/blue-gradient.png");
+    background-position: center;
+    background-size: cover;
+  
+}
+
+/* nav-bar */
+/* Resetting default margin and padding */
+
+nav {
+    /* background-color: #333; */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    width: 100%;
+    /* background: rgba(255, 255, 255, 0.2); */
+    align-items: center;
+    /* backdrop-filter: blur(4px) saturate(200%); */
+    margin-top: 15px;
+}
+
+.logo img {
+    height: 60px; /* Adjust the height as needed */
+    width: auto;
+    padding-left: 50px;
+}
+
+.contain{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-right: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    color: #ccc;
+}
 .cointainer{
     max-width: 650px;
     padding: 28px;
@@ -124,6 +175,19 @@ h2{
 <body>
 
 {% block content %}
+
+<!-- navbar -->
+<nav>
+  <div class="logo">
+      {% csrf_token %}
+      <a href="/home">  
+      <img src="/static/pip.png" alt="Logo">
+      </a>
+</div>
+</nav>
+
+
+
 
   <div class="cointainer">
     <form action="" method="post" onsubmit="return validateForm()">
