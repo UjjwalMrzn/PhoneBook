@@ -33,7 +33,7 @@
                 <!-- <span>></span> -->
             </a>
     
-            <a href="#" class="submenu-link">
+            <a href="{% url 'logout' %}" class="submenu-link">
                 <img src="/static/logout.png" alt="Logout">
                 <p>Logout</p>
                 <!-- <span>></span> -->
@@ -58,16 +58,25 @@
 </div>
 
 
-
-
 <script>
     let subMenu = document.getElementById("subMenu");
+    let userPic = document.querySelector(".user-pic");
 
-    function toggleMenu(){
+    function toggleMenu() {
         subMenu.classList.toggle("open-menu");
     }
 
+    // Function to hide submenu when clicking outside
+    function handleClickOutside(event) {
+        if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
+            subMenu.classList.remove("open-menu");
+        }
+    }
+
+    // Event listener to handle clicks on the body
+    document.body.addEventListener("click", handleClickOutside);
 </script>
+
 
 
 
