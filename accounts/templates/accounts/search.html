@@ -62,7 +62,7 @@ nav {
     padding-right: 30px;
 }
 
-.nav-links {
+/* .nav-links {
     list-style: none;
     display: flex;
 }
@@ -78,7 +78,7 @@ nav {
 
 .nav-links li a:hover {
     color: #ccc;
-}
+} */
 
 
 /* container box */
@@ -86,7 +86,7 @@ nav {
   display: flex;
       justify-content: center;
       /* align-items: center; */
-      height: 600px;
+      /* height: 600px; */
 }
 
 
@@ -385,6 +385,26 @@ td form button:hover {
     
 </div>
 </div>
+
+<script>
+    let subMenu = document.getElementById("subMenu");
+    let userPic = document.querySelector(".user-pic");
+
+    function toggleMenu() {
+        subMenu.classList.toggle("open-menu");
+    }
+
+    // Function to hide submenu when clicking outside
+    function handleClickOutside(event) {
+        if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
+            subMenu.classList.remove("open-menu");
+        }
+    }
+
+    // Event listener to handle clicks on the body
+    document.body.addEventListener("click", handleClickOutside);
+</script>
+
 {% endblock %}
 
 
