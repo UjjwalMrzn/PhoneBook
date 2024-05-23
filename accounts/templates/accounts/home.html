@@ -18,6 +18,30 @@
     </div>
     <img src="/static/pppp.png" class="user-pic" onclick="toggleMenu()">
 
+
+    <div class="submenu-wrap" id="subMenu">
+        <div class="submenu">
+            <a href="#" class="submenu-link">
+                <img src="/static/profile.png"  alt="Profile">
+                <p>Edit Profile</p>
+                <!-- <span>></span> -->
+            </a>
+    
+            <a href="#" class="submenu-link">
+                <img src="/static/setting.png" alt="Settings">
+                <p>Settings</p>
+                <!-- <span>></span> -->
+            </a>
+    
+            <a href="#" class="submenu-link">
+                <img src="/static/logout.png" alt="Logout">
+                <p>Logout</p>
+                <!-- <span>></span> -->
+            </a>
+        </div>
+    </div>
+
+
 </nav>
 
 <div class="container">
@@ -33,6 +57,17 @@
     </div>
 </div>
 
+
+
+
+<script>
+    let subMenu = document.getElementById("subMenu");
+
+    function toggleMenu(){
+        subMenu.classList.toggle("open-menu");
+    }
+
+</script>
 
 
 
