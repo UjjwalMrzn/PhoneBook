@@ -73,16 +73,15 @@
   
 }
 
-.capitalize input{
+/* .capitalize input{
   height: 40px;
   width: 100%;
   padding: 0 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   text-transform: capitalize; /* capital letter*/
-}
 
-.input-box label , .capitalize label{
+.input-box label{
     width : 95% ;
     margin: 5px 0;
     color:#ffffff;
@@ -156,7 +155,7 @@
             <h2>Sign Up</h2>
             <div class="content">
               
-                <div class="capitalize">
+                <div class="input-box">
                     <label for="username">Username</label>
                     {{form.username}}
                   </div>
@@ -214,7 +213,7 @@
 		//Query All input fields
     
 		// Get the input fields by their unique classes
-var usernameField = document.querySelector('.capitalize input[name="username"]');
+var usernameField = document.querySelector('.input-box input[name="username"]');
 var emailField = document.querySelector('.input-box input[name="email"]');
 var password1Field = document.querySelector('.input-box input[name="password1"]');
 var password2Field = document.querySelector('.input-box input[name="password2"]');
