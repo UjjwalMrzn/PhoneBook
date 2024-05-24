@@ -17,7 +17,7 @@
   }
   
   body{
-    width: 100vw;
+    width: 100%;
     height: 50vw;
     margin: 0;
     padding: 0;
@@ -113,7 +113,7 @@ nav {
         table th,
         table td {
             border: 1px solid #ffffff; /* Set border color to white */
-            padding: 16px; /*table size */
+            padding: 14px; /*table size */
             text-align: center;
         }
         td form button {
@@ -217,11 +217,13 @@ td form button:hover {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
+    z-index: 1;
 
 }
 
 .submenu-wrap.open-menu{
     max-height: 400px;
+    z-index: 1;
 }
 
 
@@ -280,6 +282,32 @@ td form button:hover {
 }
 
 
+
+/* nx-btn */
+.table-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust the margin as needed */
+    gap: 8px;
+}
+
+.table-controls button {
+    background-color: transparent;
+    border: 2px solid #89CFF0;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* hover color */
+.table-controls button:hover{
+    background-color: #5fa7d5;
+    color: #fff;
+    backdrop-filter: blur(1px) saturate(180%);
+}
 
 
 /* {% block additional_styles %}{% endblock %} */
@@ -408,6 +436,7 @@ td form button:hover {
                     {% endfor %}
                 </tbody>
             </table>
+            <button id="nextButton">Next</button>
             
         </div>
     </div>
@@ -432,6 +461,10 @@ td form button:hover {
 
     // Event listener to handle clicks on the body
     document.body.addEventListener("click", handleClickOutside);
+
+
+
+    
 </script>
 
 {% endblock %}
