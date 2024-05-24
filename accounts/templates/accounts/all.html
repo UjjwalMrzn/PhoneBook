@@ -134,33 +134,35 @@
     </div>
     
 </div>
-
 <script>
-    let subMenu = document.getElementById("subMenu");
-    let userPic = document.querySelector(".user-pic");
+    // Retrieve DOM elements
     let prevButton = document.getElementById("prevButton");
     let nextButton = document.getElementById("nextButton");
+    let userPic = document.querySelector(".user-pic");
+    let subMenu = document.getElementById("subMenu");
+
+    // Set initial values
     let currentPage = 1;
     let rowsPerPage = 11; // Adjust the number of rows per page as needed
 
+    // Function to toggle the submenu visibility
     function toggleMenu(event) {
-        if (subMenu.classList.contains("open-menu") && !subMenu.contains(event.target) && !userPic.contains(event.target)) {
-            subMenu.classList.remove("open-menu");
-        } else {
-            subMenu.classList.toggle("open-menu");
-        }
+        event.stopPropagation(); // Prevent the event from propagating to body
+        subMenu.classList.toggle("open-menu");
     }
 
+    // Function to hide submenu when clicking outside
     function handleClickOutside(event) {
         if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
             subMenu.classList.remove("open-menu");
         }
     }
 
+    // Function to show the specified page of rows
     function showPage(pageNumber) {
         let rows = document.querySelectorAll(".table tbody tr");
         let startIndex = (pageNumber - 1) * rowsPerPage;
-        let endIndex = Math.min(startIndex + rowsPerPage, rows.length); // Limit the endIndex to the length of rows
+        let endIndex = Math.min(startIndex + rowsPerPage, rows.length);
 
         rows.forEach((row, index) => {
             if (index >= startIndex && index < endIndex) {
@@ -171,40 +173,35 @@
         });
 
         // Enable or disable previous button based on current page
-        if (currentPage > 1) {
-            prevButton.disabled = false;
-        } else {
-            prevButton.disabled = true;
-        }
+        prevButton.disabled = currentPage === 1;
 
         // Enable or disable next button based on current page
-        if (endIndex < rows.length) {
-            nextButton.disabled = false;
-        } else {
-            nextButton.disabled = true;
-        }
+        nextButton.disabled = endIndex >= rows.length;
     }
 
+    // Function to handle next page navigation
     function nextPage() {
         currentPage++;
         showPage(currentPage);
     }
 
+    // Function to handle previous page navigation
     function prevPage() {
-        currentPage--;
-        showPage(currentPage);
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
     }
 
     // Event listeners
     document.body.addEventListener("click", handleClickOutside);
     userPic.addEventListener("click", toggleMenu);
+    subMenu.addEventListener("click", function(event){ event.stopPropagation(); }); // Prevent submenu click from closing
     nextButton.addEventListener("click", nextPage);
     prevButton.addEventListener("click", prevPage);
 
     // Initial display
     showPage(currentPage);
 </script>
-
-
 
 {% endblock %}

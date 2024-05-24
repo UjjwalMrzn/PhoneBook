@@ -446,32 +446,33 @@ td form button:hover {
 </div>
 </div>
 
-<script>
-    let subMenu = document.getElementById("subMenu");
-    let userPic = document.querySelector(".user-pic");
-    let prevButton = document.getElementById("prevButton");
-    let nextButton = document.getElementById("nextButton");
-    let currentPage = 1;
-    let rowsPerPage = 11; // Adjust the number of rows per page as needed
 
-    function toggleMenu(event) {
-        if (subMenu.classList.contains("open-menu") && !subMenu.contains(event.target) && !userPic.contains(event.target)) {
-            subMenu.classList.remove("open-menu");
-        } else {
-            subMenu.classList.toggle("open-menu");
-        }
+<script>
+    // Function to toggle the submenu when the user-pic is clicked
+    function toggleMenu() {
+        let subMenu = document.getElementById("subMenu");
+        subMenu.classList.toggle("open-menu");
     }
 
+    // Function to handle clicks outside the submenu
     function handleClickOutside(event) {
+        let subMenu = document.getElementById("subMenu");
+        let userPic = document.querySelector(".user-pic");
+
         if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
             subMenu.classList.remove("open-menu");
         }
     }
 
-    function showPage(pageNumber) {
-        let rows = document.querySelectorAll(".table tbody tr");
+    // Event listener to handle clicks on the body
+    document.body.addEventListener("click", handleClickOutside);
+
+    // Function to show the specified page of rows
+    function showPage(pageNumber, rowsPerPage) {
         let startIndex = (pageNumber - 1) * rowsPerPage;
-        let endIndex = Math.min(startIndex + rowsPerPage, rows.length); // Limit the endIndex to the length of rows
+        let endIndex = startIndex + rowsPerPage;
+
+        let rows = document.querySelectorAll(".table tbody tr");
 
         rows.forEach((row, index) => {
             if (index >= startIndex && index < endIndex) {
@@ -480,41 +481,43 @@ td form button:hover {
                 row.style.display = "none";
             }
         });
-
-        // Enable or disable previous button based on current page
-        if (currentPage > 1) {
-            prevButton.disabled = false;
-        } else {
-            prevButton.disabled = true;
-        }
-
-        // Enable or disable next button based on current page
-        if (endIndex < rows.length) {
-            nextButton.disabled = false;
-        } else {
-            nextButton.disabled = true;
-        }
     }
 
+    // Function to handle next page navigation
     function nextPage() {
+        let currentPage = parseInt(document.getElementById("currentPage").innerText);
+        let rowsPerPage = parseInt(document.getElementById("rowsPerPage").innerText);
+
         currentPage++;
-        showPage(currentPage);
+        showPage(currentPage, rowsPerPage);
+
+        document.getElementById("currentPage").innerText = currentPage;
     }
 
+    // Function to handle previous page navigation
     function prevPage() {
-        currentPage--;
-        showPage(currentPage);
+        let currentPage = parseInt(document.getElementById("currentPage").innerText);
+        let rowsPerPage = parseInt(document.getElementById("rowsPerPage").innerText);
+
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage, rowsPerPage);
+
+            document.getElementById("currentPage").innerText = currentPage;
+        }
     }
 
-    // Event listeners
-    document.body.addEventListener("click", handleClickOutside);
-    userPic.addEventListener("click", toggleMenu);
-    nextButton.addEventListener("click", nextPage);
-    prevButton.addEventListener("click", prevPage);
+    // Event listeners for next and previous buttons
+    document.getElementById("nextButton").addEventListener("click", nextPage);
+    document.getElementById("prevButton").addEventListener("click", prevPage);
 
     // Initial display
-    showPage(currentPage);
+    let initialRowsPerPage = 5; // Set initial rows per page
+    showPage(1, initialRowsPerPage);
+    document.getElementById("rowsPerPage").innerText = initialRowsPerPage;
+    document.getElementById("currentPage").innerText = 1;
 </script>
+
 {% endblock %}
 
 
