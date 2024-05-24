@@ -56,8 +56,10 @@
                         <th scope="col">Address</th>
                         <th scope="col">Email</th>
                         <th scope="col">Social Media</th>
+                        {% if request.user.is_staff %}
                         <th scope="col">Action</th> <!-- New column for edit and delete buttons -->
-                        
+                        {% endif %}
+
 
                     </tr>
                 </thead>
@@ -109,10 +111,12 @@
                             {% endif %}
                         </td>
                         
+                        {% if request.user.is_staff %}
                         <td>
                             <a href="{%url 'edit' person.id %}" class="action-btn1">Edit</a>
                             <a href="{%url 'delete' person.id%}" class="action-btn2">Delete</a></td>
-                        
+                            {% endif %}
+
                     </tr>
                     {% empty %}
                     <tr>
