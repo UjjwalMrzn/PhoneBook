@@ -436,6 +436,8 @@ td form button:hover {
                     {% endfor %}
                 </tbody>
             </table>
+            <div class="table-controls">
+            <button id="prevButton">Previous</button>
             <button id="nextButton">Next</button>
             
         </div>
@@ -447,26 +449,72 @@ td form button:hover {
 <script>
     let subMenu = document.getElementById("subMenu");
     let userPic = document.querySelector(".user-pic");
+    let prevButton = document.getElementById("prevButton");
+    let nextButton = document.getElementById("nextButton");
+    let currentPage = 1;
+    let rowsPerPage = 11; // Adjust the number of rows per page as needed
 
-    function toggleMenu() {
-        subMenu.classList.toggle("open-menu");
+    function toggleMenu(event) {
+        if (subMenu.classList.contains("open-menu") && !subMenu.contains(event.target) && !userPic.contains(event.target)) {
+            subMenu.classList.remove("open-menu");
+        } else {
+            subMenu.classList.toggle("open-menu");
+        }
     }
 
-    // Function to hide submenu when clicking outside
     function handleClickOutside(event) {
         if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
             subMenu.classList.remove("open-menu");
         }
     }
 
-    // Event listener to handle clicks on the body
+    function showPage(pageNumber) {
+        let rows = document.querySelectorAll(".table tbody tr");
+        let startIndex = (pageNumber - 1) * rowsPerPage;
+        let endIndex = Math.min(startIndex + rowsPerPage, rows.length); // Limit the endIndex to the length of rows
+
+        rows.forEach((row, index) => {
+            if (index >= startIndex && index < endIndex) {
+                row.style.display = "table-row";
+            } else {
+                row.style.display = "none";
+            }
+        });
+
+        // Enable or disable previous button based on current page
+        if (currentPage > 1) {
+            prevButton.disabled = false;
+        } else {
+            prevButton.disabled = true;
+        }
+
+        // Enable or disable next button based on current page
+        if (endIndex < rows.length) {
+            nextButton.disabled = false;
+        } else {
+            nextButton.disabled = true;
+        }
+    }
+
+    function nextPage() {
+        currentPage++;
+        showPage(currentPage);
+    }
+
+    function prevPage() {
+        currentPage--;
+        showPage(currentPage);
+    }
+
+    // Event listeners
     document.body.addEventListener("click", handleClickOutside);
+    userPic.addEventListener("click", toggleMenu);
+    nextButton.addEventListener("click", nextPage);
+    prevButton.addEventListener("click", prevPage);
 
-
-
-    
+    // Initial display
+    showPage(currentPage);
 </script>
-
 {% endblock %}
 
 
