@@ -70,9 +70,19 @@
   padding: 0 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  
 }
 
-.input-box label{
+.capitalize input{
+  height: 40px;
+  width: 100%;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  text-transform: capitalize; /* capital letter*/
+}
+
+.input-box label , .capitalize label{
     width : 95% ;
     margin: 5px 0;
     color:#ffffff;
@@ -146,7 +156,7 @@
             <h2>Sign Up</h2>
             <div class="content">
               
-                <div class="input-box">
+                <div class="capitalize">
                     <label for="username">Username</label>
                     {{form.username}}
                   </div>

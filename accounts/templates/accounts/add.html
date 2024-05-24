@@ -59,7 +59,7 @@ nav {
     gap: 12px;
     padding-right: 30px;
 }
-
+/* 
 .nav-links {
     list-style: none;
     display: flex;
@@ -76,7 +76,7 @@ nav {
 
 .nav-links li a:hover {
     color: #ccc;
-}
+} */
 
 
 /* container box */
@@ -133,7 +133,12 @@ h2{
   padding: 0 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  text-transform: capitalize; /* capital letter*/
 }
+
+.input-box input.no-capitalize {
+            text-transform: none; /* Override capitalize */
+        }
 
 
 .input-box label{
@@ -382,7 +387,7 @@ h2{
 
         <div class="input-box">
           <label for="email">Email</label>
-          <input type="email" placeholder="Enter email" id="emai"  name="email">
+          <input type="email" placeholder="Enter email" id="emai"  name="email" class="no-capitalize">
 
           <div class="input-box">
             <div class="select-box">
@@ -401,7 +406,7 @@ h2{
 
         <div class="input-box">
           <label for="username">User Name</label>
-          <input type="username" placeholder="Enter @Username" id="uname"  name="uname">
+          <input type="username" placeholder="Enter @Username" id="uname"  name="uname" class="no-capitalize">
         
         <div class="input-box">
         <div class="select-box">
