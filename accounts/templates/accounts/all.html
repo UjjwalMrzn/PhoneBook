@@ -13,8 +13,10 @@
         </a>
   </div>
   
-  <img src="/static/pppp.png" class="user-pic" onclick="toggleMenu()">
-  
+  <div class="user-container" onclick="toggleMenu()">
+    <img src="/static/pppp.png" class="user-pic">
+    <img src="/static/dropdown.png" class="dropdown-arrow">
+</div>  
   
   <div class="submenu-wrap" id="subMenu">
       <div class="submenu">
@@ -139,25 +141,27 @@
     let prevButton = document.getElementById("prevButton");
     let nextButton = document.getElementById("nextButton");
     let userPic = document.querySelector(".user-pic");
+
     let subMenu = document.getElementById("subMenu");
+let userContainer = document.querySelector(".user-container");
 
-    // Set initial values
-    let currentPage = 1;
-    let rowsPerPage = 11; // Adjust the number of rows per page as needed
+function toggleMenu(event) {
+    event.stopPropagation(); // Prevent the click event from bubbling up to the body
+    subMenu.classList.toggle("open-menu");
+}
 
-    // Function to toggle the submenu visibility
-    function toggleMenu(event) {
-        event.stopPropagation(); // Prevent the event from propagating to body
-        subMenu.classList.toggle("open-menu");
+// Function to hide submenu when clicking outside
+function handleClickOutside(event) {
+    if (!subMenu.contains(event.target) && !userContainer.contains(event.target)) {
+        subMenu.classList.remove("open-menu");
     }
+}
 
-    // Function to hide submenu when clicking outside
-    function handleClickOutside(event) {
-        if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
-            subMenu.classList.remove("open-menu");
-        }
-    }
+// Event listener to handle clicks on the body
+document.body.addEventListener("click", handleClickOutside);
 
+// Event listener to handle clicks on the user container
+userContainer.addEventListener("click", toggleMenu);
     // Function to show the specified page of rows
     function showPage(pageNumber) {
         let rows = document.querySelectorAll(".table tbody tr");
@@ -202,6 +206,9 @@
 
     // Initial display
     showPage(currentPage);
+
+
+
 </script>
 
 {% endblock %}
