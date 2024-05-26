@@ -20,8 +20,10 @@ table {
         </a>
   </div>
   
-  <img src="/static/pppp.png" class="user-pic" onclick="toggleMenu()">
-  
+  <div class="user-container" onclick="toggleMenu()">
+    <img src="/static/pppp.png" class="user-pic">
+    <img src="/static/dropdown.png" class="dropdown-arrow">
+</div>  
   
   <div class="submenu-wrap" id="subMenu">
       <div class="submenu">
@@ -141,21 +143,26 @@ table {
 
 <script>
     let subMenu = document.getElementById("subMenu");
-    let userPic = document.querySelector(".user-pic");
+let userContainer = document.querySelector(".user-container");
 
-    function toggleMenu() {
-        subMenu.classList.toggle("open-menu");
+function toggleMenu(event) {
+    event.stopPropagation(); // Prevent the click event from bubbling up to the body
+    subMenu.classList.toggle("open-menu");
+}
+
+// Function to hide submenu when clicking outside
+function handleClickOutside(event) {
+    if (!subMenu.contains(event.target) && !userContainer.contains(event.target)) {
+        subMenu.classList.remove("open-menu");
     }
+}
 
-    // Function to hide submenu when clicking outside
-    function handleClickOutside(event) {
-        if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
-            subMenu.classList.remove("open-menu");
-        }
-    }
+// Event listener to handle clicks on the body
+document.body.addEventListener("click", handleClickOutside);
 
-    // Event listener to handle clicks on the body
-    document.body.addEventListener("click", handleClickOutside);
+// Event listener to handle clicks on the user container
+userContainer.addEventListener("click", toggleMenu);
+
 </script>
 
 {% endblock %}
