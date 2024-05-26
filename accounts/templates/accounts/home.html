@@ -16,7 +16,12 @@
     <span class="hello-msg">Hello, {{request.user}} |</span>
     <!-- <span><a class="hello-msg logout-link" href="{% url 'logout' %}">Logout</a></span>  -->
     </div>
-    <img src="/static/pppp.png" class="user-pic" onclick="toggleMenu()">
+    
+    <div class="user-container" onclick="toggleMenu()">
+        <img src="/static/pppp.png" class="user-pic">
+        <img src="/static/dropdown.png" class="dropdown-arrow">
+    </div>
+    
 
 
     <div class="submenu-wrap" id="subMenu">
@@ -41,6 +46,7 @@
         </div>
     </div>
 
+   
 
 </nav>
 

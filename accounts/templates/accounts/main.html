@@ -221,22 +221,45 @@ nav {
 
 
 /* profile */
-.user-pic {
-        width: 60px; /* Adjust size as needed */
-        height: 60px;
+/* .user-pic { */
+        /* width: 60px; Adjust size as needed */
+        /* height: 60px;
         margin-right: 10px;
         margin-bottom: 3px;
-        position: absolute;
-        top: 26px; /* Adjust top position as needed */
-        right: 20px; /* Adjust right position as needed */
-        cursor: pointer;
-    }
+        position: absolute; */
+        /* top: 26px; /* Adjust top position as needed */
+        /* right: 20px; Adjust right position as needed */
+        /* cursor: pointer;
+    } */
 
-    .user-pic:hover{
-      transform: scale(1.1);
 
+/* dropdown arrow */
+
+/* profile */
+.user-container {
+    position: relative;
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically */
+    margin-top: 6px;
 }
 
+.dropdown-arrow {
+    width: 15px; /* Adjust size as needed */
+    height: 12px;
+    cursor: pointer;
+    margin-left: 1px; /* Add some space between the user pic and dropdown arrow */
+    margin-top: 14px;
+}
+.user-pic {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    margin-right: 1px;
+    cursor: pointer;
+}
+.user-container:hover .user-pic,
+.user-container:hover .dropdown-arrow {
+    transform: scale(1.1);
+}
 
 
 /* dropdown */
@@ -331,6 +354,7 @@ footer {
 .footer-content p {
     margin: 0;
 }
+
 
 
 
