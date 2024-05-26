@@ -245,6 +245,39 @@ nav {
 
 }
 
+
+
+/* footer */
+
+/* h2 {
+  border-bottom: 1px solid silver;
+  display: flex;
+  align-items: center; /* Aligns items vertically
+} */
+
+footer {
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    padding: 15px 0; /* You can keep some padding */
+    min-height: 30px; /* Set the minimum height */
+    position: relative;
+    bottom: 0;
+    /* width: 100%; */
+    margin-top: 5px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+
+
 </style>
 <body>
     <nav>
@@ -260,6 +293,7 @@ nav {
         <span class="hello-msg">Hello, {{request.user}}  |</span>
         <!-- <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>  -->
         </div>
+
 
     <img src="/static/pppp.png" class="user-pic" onclick="toggleMenu()">
 
@@ -298,6 +332,12 @@ nav {
             {% endif %}
         </div>
     </div>
+<!-- <h2></h2> -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; {{ current_year }} PIPL. All rights reserved.</p>
+        </div>
+    </footer>
     
 
 <script>
