@@ -188,21 +188,33 @@ td form button:hover {
 
 
 /* profile */
+
+/* dropdown arrow */
+
+/* profile */
+.user-container {
+    position: relative;
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically */
+    margin-top: 3px;
+}
+
+.dropdown-arrow {
+    width: 15px; /* Adjust size as needed */
+    height: 12px;
+    cursor: pointer;
+    margin-left: 1px; /* Add some space between the user pic and dropdown arrow */
+    margin-top: 14px;
+}
 .user-pic {
-        width: 70px; /* Adjust size as needed */
-        height: 70px;
-        margin-right: 10px;
-        margin-bottom: 3px;
-        position: absolute;
-        top: 18px; /* Adjust top position as needed */
-        right: 25px; /* Adjust right position as needed */
-        cursor: pointer;
-    }
-
-
-    .user-pic:hover{
-      transform: scale(1.1);
-
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    margin-right: 1px;
+    cursor: pointer;
+}
+.user-container:hover .user-pic,
+.user-container:hover .dropdown-arrow {
+    transform: scale(1.1);
 }
 
 
@@ -324,8 +336,10 @@ td form button:hover {
         <img src="/static/pip.png" alt="Logo">
         </a>
   </div>
-  
-  <img src="/static/pppp.png" class="user-pic" onclick="toggleMenu()">
+  <div class="user-container" onclick="toggleMenu()">
+    <img src="/static/pppp.png" class="user-pic">
+    <img src="/static/dropdown.png" class="dropdown-arrow">
+</div>
   
   
   <div class="submenu-wrap" id="subMenu">
@@ -448,24 +462,27 @@ td form button:hover {
 
 
 <script>
-    // Function to toggle the submenu when the user-pic is clicked
-    function toggleMenu() {
-        let subMenu = document.getElementById("subMenu");
-        subMenu.classList.toggle("open-menu");
+   
+ let subMenu = document.getElementById("subMenu");
+let userContainer = document.querySelector(".user-container");
+
+function toggleMenu(event) {
+    event.stopPropagation(); // Prevent the click event from bubbling up to the body
+    subMenu.classList.toggle("open-menu");
+}
+
+// Function to hide submenu when clicking outside
+function handleClickOutside(event) {
+    if (!subMenu.contains(event.target) && !userContainer.contains(event.target)) {
+        subMenu.classList.remove("open-menu");
     }
+}
 
-    // Function to handle clicks outside the submenu
-    function handleClickOutside(event) {
-        let subMenu = document.getElementById("subMenu");
-        let userPic = document.querySelector(".user-pic");
+// Event listener to handle clicks on the body
+document.body.addEventListener("click", handleClickOutside);
 
-        if (!subMenu.contains(event.target) && !userPic.contains(event.target)) {
-            subMenu.classList.remove("open-menu");
-        }
-    }
-
-    // Event listener to handle clicks on the body
-    document.body.addEventListener("click", handleClickOutside);
+// Event listener to handle clicks on the user container
+userContainer.addEventListener("click", toggleMenu);
 
     // Function to show the specified page of rows
     function showPage(pageNumber, rowsPerPage) {
