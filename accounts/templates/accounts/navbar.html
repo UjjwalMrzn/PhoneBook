@@ -4,310 +4,256 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            height: 50vw;
+            margin: 0;
+            padding: 0;
+            background-image: url("/static/blue-gradient.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        nav {
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px;
+            width: 100%;
+            position: relative;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            padding-left: 50px;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .nav-content a {
+            display: none;
+            position: relative;
+            font-size: 18px;
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+            margin-left: 40px;
+        }
+
+        .nav-content a::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #fff;
+            transition: .3s;
+        }
+
+        .nav-content a:hover::before {
+            width: 100%;
+        }
+
+        .btn-option {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .logout-container {
+            margin-right: 20px;
+            position: absolute;
+            top: 45px;
+            right: 5px;
+            color: aliceblue;
+        }
+
+        .hello-msg {
+            font-size: 18px;
+            color: #fff;
+            margin-right: 70px;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 80vh;
+            padding: 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            border-radius: 60px;
+            padding: 1px 2px;
+            backdrop-filter: blur(4px) saturate(180%);
+        }
+
+        .search-bar input {
+            background: transparent;
+            flex: 1;
+            border: 0;
+            outline: none;
+            padding: 15px 20px;
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        ::placeholder {
+            color: rgb(255, 255, 255);
+        }
+
+        .search-bar button img {
+            width: 25px;
+        }
+
+        .search-bar button {
+            border: 0;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .user-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-arrow {
+            width: 15px;
+            height: 12px;
+            cursor: pointer;
+            margin-left: 1px;
+            margin-top: 14px;
+        }
+
+        .user-pic {
+            width: 50px;
+            height: 50px;
+            margin-right: 1px;
+            cursor: pointer;
+        }
+
+        .user-container:hover .user-pic,
+        .user-container:hover .dropdown-arrow {
+            transform: scale(1.1);
+        }
+
+        .submenu-wrap {
+            position: absolute;
+            top: 100%;
+            right: 0%;
+            width: 200px;
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height 0.5s;
+        }
+
+        .submenu-wrap.open-menu {
+            max-height: 400px;
+        }
+
+        .submenu {
+            background: #fff;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .submenu-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #525252;
+            margin: 12px 0;
+        }
+
+        .submenu-link p {
+            width: 100%;
+        }
+
+        .submenu-link img {
+            width: 40px;
+            background: #e5e5e5;
+            border-radius: 50%;
+            padding: 8px;
+            margin-right: 15px;
+        }
+
+        .submenu-link:hover p {
+            font-weight: 600;
+        }
+
+        .submenu-link img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            min-height: 30px;
+            position: relative;
+            bottom: 0;
+            margin-top: 5px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin: 0;
+        }
+    </style>
 </head>
-<style>
-     *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box ;
-        font-family: 'Poppins', sans-serif;
-    
-    }
-    
-    
-    body {
-        width: 100vw;
-        height: 50vw;
-        margin: 0;
-        padding: 0;
-        background-image: url("/static/blue-gradient.png");
-        background-position: center;
-        background-size: cover;
-      
-    }
-
-    
-nav {
-    /* background-color: #333; */
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 15px;
-    width: 100%;
-    /* background: rgba(255, 255, 255, 0.2); */
-    align-items: center;
-    /* backdrop-filter: blur(4px) saturate(200%); */
-    position: relative;
-}
-
-.logo img {
-    height: 60px; /* Adjust the height as needed */
-    width: auto;
-    padding-left: 50px;
-}
-
-.nav-content {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-}
-.nav-content a{
-    display: none;  /* displays none */
-    position: relative;
-    font-size: 18px;
-    color: #fff;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 40px;
-
-}
-
-.nav-content a::before{
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #fff;
-    transition: .3s;
-}
-
-.nav-content a:hover::before{
-    width: 100%;
-}
-
-
-
-.btn-option {
-    display: inline-block;
-    text-decoration: none;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;
-}
-
-
-
-
-
-.logout-container{
-  margin-right: 20px;
-  position: absolute;
-  top: 45px;
-  right: 5px;
-  /* background-color: red; */
-  color: aliceblue;
-}
-
-
-.hello-msg{
-  font-size: 18px;
-  color: #fff;
-  margin-right: 70px;
-    
-}
-
-
-
-
-.container {
-  width: 100%;
-  min-height: 80vh;
-  padding: 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.search-bar {
-  width: 100%;
-  max-width: 700px;
-  background: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  border-radius: 60px;
-  padding: 1px 2px;
-  backdrop-filter: blur(4px) saturate(180%);
-}
-
-.search-bar input {
-  background: transparent;
-  flex: 1;
-  border: 0;
-  outline: none;
-  padding: 15px 20px;
-  font-size: 20px;
-  color: #ffffff;
-}
-
-::placeholder {
-  color: rgb(255, 255, 255);
-}
-
-.search-bar button img {
-  width: 25px;
-}
-
-.search-bar button {
-  border: 0;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  background:  #4CAF50;
-  cursor: pointer;
-}
-
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px; /* Adjust the margin to position the buttons 15px below the search bar */
-}
-
-
-
-/* profile */
-.user-container {
-    position: relative;
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Align items vertically */
-}
-
-.dropdown-arrow {
-    width: 15px; /* Adjust size as needed */
-    height: 12px;
-    cursor: pointer;
-    margin-left: 1px; /* Add some space between the user pic and dropdown arrow */
-    margin-top: 14px;
-}
-
-.user-pic {
-    width: 50px; /* Adjust size as needed */
-    height: 50px;
-    margin-right: 1px;
-    cursor: pointer;
-}
-
-
-
-/* dropdown */
-.submenu-wrap{
-    position: absolute;
-    top: 100%;
-    right: 0%;
-    width: 200px;
-    max-height: 0px;
-    overflow: hidden;
-    transition: max-height 0.5s;
-
-}
-
-.submenu-wrap.open-menu{
-    max-height: 400px;
-}
-
-
-
-
-
-.submenu{
-    background: #fff;
-    padding: 20px;
-    margin: 10px;
-
-}
-
-.submenu-link{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #525252;
-    margin: 12px 0;
-}
-
-.submenu-link p{
-    width: 100%;
-}
-.submenu-link img{
-    width: 40px;
-    background: #e5e5e5;
-    border-radius: 50%;
-    padding: 8px;
-    margin-right: 15px;
-}
-/* 
-.submenu-link span{
-    font-size: 18px;
-    transition: transfrom 0.5s;
-}
-
-.submenu-link:hover span{
-    transform: translateX(5px);
-} */
-
-.submenu-link:hover p{
-    font-weight: 600;
-
-}
-.user-pic {
-        width: 70px; /* Adjust size as needed */
-        height: 70px;
-        margin-right: 10px;
-        margin-bottom: 3px;
-        position: absolute;
-        top: 18px; /* Adjust top position as needed */
-        right: 25px; /* Adjust right position as needed */
-        cursor: pointer;
-    }
-
-
-
-
-/* footer */
-
-footer {
-    background-color: transparent;
-    color: white;
-    text-align: center;
-    padding: 15px 0; /* You can keep some padding */
-    min-height: 30px; /* Set the minimum height */
-    position: relative;
-    bottom: 0;
-    /* width: 100%; */
-    margin-top: 5px;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-content p {
-    margin: 0;
-}
-
-
-
-</style>
 <body>
     <nav>
         <div class="logo">
             {% csrf_token %}
             <a href="/">  
-            <img src="/static/pip.png" alt="Logo">
+                <img src="/static/pip.png" alt="Logo">
             </a>
-    </div>
-    
-          
-    <div class="logout-container"> 
-        <span class="hello-msg">Hello, {{request.user}}  |</span>
-        <!-- <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>  -->
+        </div>
+        
+        <div class="logout-container"> 
+            <span class="hello-msg">Hello, {{request.user}} |</span>
         </div>
 
         <div class="user-container" onclick="toggleMenu()">
@@ -315,28 +261,22 @@ footer {
             <img src="/static/dropdown.png" class="dropdown-arrow">
         </div>
         
-
-<div class="submenu-wrap" id="subMenu">
-    <div class="submenu">
-        <a href="#" class="submenu-link">
-            <img src="/static/profile.png"  alt="Profile">
-            <p>Edit Profile</p>
-            <!-- <span>></span> -->
-        </a>
-
-        <a href="#" class="submenu-link">
-            <img src="/static/setting.png" alt="Settings">
-            <p>Settings</p>
-            <!-- <span>></span> -->
-        </a>
-
-        <a href="#" class="submenu-link">
-            <img src="/static/logout.png" alt="Logout">
-            <p>Logout</p>
-            <!-- <span>></span> -->
-        </a>
-    </div>
-</div>
+        <div class="submenu-wrap" id="subMenu">
+            <div class="submenu">
+                <a href="#" class="submenu-link">
+                    <img src="/static/profile.png" alt="Profile">
+                    <p>Edit Profile</p>
+                </a>
+                <a href="#" class="submenu-link">
+                    <img src="/static/setting.png" alt="Settings">
+                    <p>Settings</p>
+                </a>
+                <a href="#" class="submenu-link">
+                    <img src="/static/logout.png" alt="Logout">
+                    <p>Logout</p>
+                </a>
+            </div>
+        </div>
     </nav>
 
     <div class="container">
@@ -351,22 +291,19 @@ footer {
             {% endif %}
         </div>
     </div>
-<!-- <h2></h2> -->
+
     <footer>
         <div class="footer-content">
             <p>&copy; {{ current_year }} PIPL. All rights reserved.</p>
         </div>
     </footer>
-    
 
-<script>
-    let subMenu = document.getElementById("subMenu");
+    <script>
+        let subMenu = document.getElementById("subMenu");
 
-    function toggleMenu(){
-        subMenu.classList.toggle("open-menu");
-    }
-
-</script>
-    
+        function toggleMenu() {
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
 </body>
 </html>
