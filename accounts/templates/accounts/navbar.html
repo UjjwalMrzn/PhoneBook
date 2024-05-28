@@ -30,9 +30,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 15px;
+            padding: 5px 15px;
             width: 100%;
             position: relative;
+            background-color: transparent;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Logo styling */
@@ -43,20 +45,22 @@
         }
 
         /* Navigation content styling */
-        .nav-content {
+        .nav-content{
             display: flex;
             justify-content: center;
             flex-grow: 1;
+            padding-right: 120px;
+            margin-top: 12px;
         }
 
         .nav-content a {
-            display: none;
+            display: inline-block;
             position: relative;
-            font-size: 18px;
+            font-size: 22px;
             color: #fff;
             font-weight: 500;
             text-decoration: none;
-            margin-left: 40px;
+            margin-left: 65px;
         }
 
         .nav-content a::before {
@@ -88,9 +92,8 @@
 
         /* Logout container styling */
         .logout-container {
-            margin-right: 20px;
             position: absolute;
-            top: 45px;
+            top: 38px;
             right: 5px;
             color: aliceblue;
         }
@@ -98,7 +101,7 @@
         .hello-msg {
             font-size: 18px;
             color: #fff;
-            margin-right: 70px;
+            margin-right: 95px;
         }
 
         /* Main container styling */
@@ -163,6 +166,7 @@
             position: relative;
             display: flex;
             align-items: center;
+            top: 8px
         }
 
         .dropdown-arrow {
@@ -257,12 +261,20 @@
     </style>
 </head>
 <body>
-    <nav>
+    <nav class="navbar-container">
         <div class="logo">
             {% csrf_token %}
             <a href="/">  
                 <img src="/static/pip.png" alt="Logo">
             </a>
+        </div>
+        
+        <div class="nav-content">
+            <a href="/home">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/">Contact</a>
+            <!-- <a href="/search" method="get" type="submit"><img src ="/static/searchbtn.png"></a> -->
+
         </div>
         
         <div class="logout-container"> 
@@ -280,9 +292,13 @@
                     <img src="/static/profile.png" alt="Profile">
                     <p>Edit Profile</p>
                 </a>
+                <a href="/about" class="submenu-link">
+                    <img src="/static/abt.png" alt="About Us">
+                    <p>About Us</p>
+                </a>
                 <a href="#" class="submenu-link">
-                    <img src="/static/setting.png" alt="Settings">
-                    <p>Settings</p>
+                    <img src="/static/cnt.png" alt="Contact">
+                    <p>Contact</p>
                 </a>
                 <a href="#" class="submenu-link">
                     <img src="/static/logout.png" alt="Logout">

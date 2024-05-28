@@ -12,6 +12,7 @@ urlpatterns = [
     path('delete/<int:pk>', views.delete , name='delete'),
     path('edit/<int:pk>', views.edit, name='edit' ),
     path('user', views.user, name='user' ),
+    path('about', views.about, name='about' ),
 
     
     #login and register

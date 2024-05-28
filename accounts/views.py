@@ -19,6 +19,8 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 
 def navbar(request):
     return render(request, 'accounts/navbar.html')
+def about(request):
+    return render(request, 'accounts/aboutus.html')
 
 
 def front(request):
