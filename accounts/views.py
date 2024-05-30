@@ -21,6 +21,8 @@ def navbar(request):
     return render(request, 'accounts/navbar.html')
 def about(request):
     return render(request, 'accounts/aboutus.html')
+def contact(request):
+    return render(request, 'accounts/contactus.html')
 
 
 def front(request):

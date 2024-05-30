@@ -13,6 +13,7 @@ urlpatterns = [
     path('edit/<int:pk>', views.edit, name='edit' ),
     path('user', views.user, name='user' ),
     path('about', views.about, name='about' ),
+    path('contact', views.contact, name='contact' ),
 
     
     #login and register
