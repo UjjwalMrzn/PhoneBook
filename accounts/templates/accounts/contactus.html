@@ -275,6 +275,31 @@
             grid-template-columns: 1fr;
         }
     }
+
+
+
+/* footer */
+
+footer {
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    padding: 15px 0; /* You can keep some padding */
+    min-height: 30px; /* Set the minimum height */
+    position: relative;
+    bottom: 0;
+    /* width: 100%; */
+    margin-top: 120px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 0;
+}
 </style>
 <body>
     <nav class="navbar-container">
@@ -355,5 +380,39 @@
         </div>
     </div>
 </section>
+
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; {{ current_year }} PIPL. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script>
+    let subMenu = document.getElementById("subMenu");
+   let userContainer = document.querySelector(".user-container");
+   
+   function toggleMenu(event) {
+       event.stopPropagation(); // Prevent the click event from bubbling up to the body
+       subMenu.classList.toggle("open-menu");
+   }
+   
+   // Function to hide submenu when clicking outside
+   function handleClickOutside(event) {
+       if (!subMenu.contains(event.target) && !userContainer.contains(event.target)) {
+           subMenu.classList.remove("open-menu");
+       }
+   }
+   
+   // Event listener to handle clicks on the body
+   document.body.addEventListener("click", handleClickOutside);
+   
+   // Event listener to handle clicks on the user container
+   userContainer.addEventListener("click", toggleMenu);
+   
+   </script>
+   
+
 </body>
 </html>

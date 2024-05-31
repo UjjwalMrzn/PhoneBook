@@ -1,114 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-  *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box ;
-        font-family: 'Poppins', sans-serif;
-    
-    }
-    
-    
-    body {
-        width: 100vw;
-        height: 50vw;
-        margin: 0;
-        padding: 0;
-        background-image: url("/static/blue-gradient.png");
-        background-position: center;
-        background-size: cover;
-      
-    }
+{% extends 'accounts/main.html' %}
 
 
-      
-nav {
-    /* background-color: #333; */
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 15px;
-    width: 100%;
-    /* background: rgba(255, 255, 255, 0.2); */
-    align-items: center;
-    /* backdrop-filter: blur(4px) saturate(200%); */
-    position: relative;
-    margin-top: 2px;
-}
-
-.logo img {
-    height: 60px; /* Adjust the height as needed */
-    width: auto;
-    padding-left: 50px;
-}
-    /* container box */
- .box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-        }
-        .container {
-            max-width: 1200px; /* Increased max-width for wider container */
-            padding: 28px;
-            border-radius: 10px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
-            border: 1px solid white; /* Adding a white border */
-            backdrop-filter: blur(5px);
-            color: floralwhite;
-            margin: 0 20px; /* Ensure some margin on smaller screens */
-        }
-        h2 {
-            font-size: 26px;
-            font-weight: bold;
-            text-align: center;
-            color: floralwhite;
-            padding-bottom: 8px;
-            border-bottom: 1px solid silver;
-        }
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: rgb(253, 253, 253);
-        }
-        p.section-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-</style>
-<body>
-    <nav>
-        <div class="logo">
-            {% csrf_token %}
-            <a href="/home">  
+{% block content %}
+<nav class="navbar-container">
+    <div class="logo">
+        {% csrf_token %}
+        <a href="/">  
             <img src="/static/pip.png" alt="Logo">
-            </a>
+        </a>
     </div>
-    </nav>
     
-<div class="box">
-    <div class="container">
-        <h2>About Us</h2>
-        <p>Welcome to Pipl, your go-to solution for an innovative phone directory system! At Pipl, we are dedicated to simplifying the way you connect with people and businesses. Our summer project brings together a passionate team of tech enthusiasts committed to creating a user-friendly and efficient platform that makes finding contact information a breeze.</p>
-        
-        <p class="section-title">Our Mission</p>
-        <p>To provide a seamless and accessible phone directory system that enhances communication and connectivity for individuals and businesses alike.</p>
-        
-        <p class="section-title">Our Vision</p>
-        To revolutionize the way you search and connect by offering a comprehensive and reliable directory system, setting a new standard in convenience and accuracy.</p>
+    <div class="nav-content">
+        <a href="/home">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact</a>
+        <!-- <a href="/search" method="get" type="submit"><img src ="/static/searchbtn.png"></a> -->
 
-        <p>Join us on our journey as we innovate and improve the way you stay connected. Discover the ease and efficiency of Pipl today!</p>
-            </div>
-</div>
+    </div>
     
-</body>
-</html>
+    <div class="logout-container"> 
+        <span class="hello-msg">Hello, {{request.user}} |</span>
+    </div>
+
+    <div class="user-container" onclick="toggleMenu()">
+        <img src="/static/pppp.png" class="user-pic" alt="User Picture">
+        <img src="/static/dropdown.png" class="dropdown-arrow" alt="Dropdown Arrow">
+    </div>
+    
+    <div class="submenu-wrap" id="subMenu">
+        <div class="submenu">
+            <a href="#" class="submenu-link">
+                <img src="/static/profile.png" alt="Profile">
+                <p1>Edit Profile</p1>
+            </a>
+            <a href="/about" class="submenu-link">
+                <img src="/static/abt.png" alt="About Us">
+                <p1>About Us</p1>
+            </a>
+            <a href="#" class="submenu-link">
+                <img src="/static/cnt.png" alt="Contact">
+                <p1>Contact</p1>
+            </a>
+            <a href="#" class="submenu-link">
+                <img src="/static/logout.png" alt="Logout">
+                <p1>Logout</p1>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="box-about">
+<div class="container-about">
+    <h2>About Us</h2>
+    <p>"Welcome to PIPL, where innovation meets connectivity. We're not just another phone directory system; we're the architects of seamless communication solutions. Our journey began with a vision to revolutionize how individuals and businesses connect, transcending the barriers of traditional directories. At PIPL, our mission is clear:
+         to provide a comprehensive and accessible platform that enhances communication and fosters meaningful connections. With a team of passionate tech enthusiasts at our helm, we've embarked on a relentless pursuit of excellence. Through cutting-edge technology and user-centric design, we've crafted a platform that empowers users to navigate the digital landscape with ease. From intuitive search algorithms to robust contact information, every aspect of PIPL is meticulously designed to deliver an unparalleled experience."<br><br>
+
+        "However, our commitment doesn't end with our current achievements. We're dedicated to continuous improvement, constantly pushing the boundaries of innovation to meet the evolving needs of our users. Join us on our journey as we redefine the way you connect with the world around you. Discover the possibilities with PIPL and experience communication reimagined. Together, let's shape the future of connectivity and forge stronger connections in an ever-evolving digital age."
+        </p>
+
+
+
+
+</div>
+</div>
+
+
+
+<footer>
+<div class="footer-content">
+    <p>&copy; {{ current_year }} PIPL. All rights reserved.</p>
+</div>
+</footer>
+
+
+
+
+
+<script>
+let subMenu = document.getElementById("subMenu");
+let userContainer = document.querySelector(".user-container");
+
+function toggleMenu(event) {
+   event.stopPropagation(); // Prevent the click event from bubbling up to the body
+   subMenu.classList.toggle("open-menu");
+}
+
+// Function to hide submenu when clicking outside
+function handleClickOutside(event) {
+   if (!subMenu.contains(event.target) && !userContainer.contains(event.target)) {
+       subMenu.classList.remove("open-menu");
+   }
+}
+
+// Event listener to handle clicks on the body
+document.body.addEventListener("click", handleClickOutside);
+
+// Event listener to handle clicks on the user container
+userContainer.addEventListener("click", toggleMenu);
+
+</script>
+
+{% endblock %}
