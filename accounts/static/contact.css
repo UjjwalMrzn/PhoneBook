@@ -1,3 +1,4 @@
+   
 * {
     margin: 0;
     padding: 0;
@@ -262,16 +263,20 @@ nav {
     transform: scale(1.1);
 }
 
+
 /* Footer styling */
 footer {
     background-color: transparent;
     color: white;
     text-align: center;
-    padding: 52px 0;
     min-height: 30px;
-    position: relative;
+    position: fixed; /* Use fixed positioning to always stick at the bottom */
     bottom: 0;
     width: 100%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px 0; /* Add 20px padding at the bottom */
 }
 
 .footer-content {
@@ -283,122 +288,9 @@ footer {
     margin: 0;
 }
 
-/* Add.html */
-/* Container box */
-.box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
-}
 
-.container {
-    max-width: 650px;
-    padding: 28px;
-    border-radius: 10px;
-    overflow: hidden;
-    background: transparent;
-    border: none;
-    backdrop-filter: blur(5px) saturate(90%);
-}
 
-h2 {
-    font-size: 26px;
-    font-weight: bold;
-    text-align: center;
-    color: floralwhite;
-    padding-bottom: 8px;
-    border-bottom: 1px solid silver;
-}
 
-.content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px 0;
-}
-
-.input-box {
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    padding-bottom: 15px;
-}
-
-.input-box input {
-    height: 40px;
-    width: 95%;
-    padding: 0 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    text-transform: capitalize;
-}
-
-.input-box input.no-capitalize {
-    text-transform: none;
-}
-
-.input-box label {
-    width: 95%;
-    margin: 5px 0;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.media-title {
-    width: 100%;
-    margin: 5px 0;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.form-check label {
-    color: #ffffff;
-}
-
-.button-container button {
-    width: 100%;
-    margin-top: 8px;
-    background-color: #5fa7d5;
-    font-size: 15px;
-    color: white;
-    padding: 8px 12px;
-    border: 2px solid #5fa7d5;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.button-container button:hover {
-    background-color: transparent;
-}
-
-/* About us */
-.container-about {
-    max-width: 800px;
-    padding: 20px 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: transparent;
-    border-radius: 10px;
-    color: #fff;
-    text-align: left;
-}
-
-.box-about {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 450px;
-}
-
-.container-about h2 {
-    border-bottom: 2px solid #fff;
-    padding-bottom: 20px;
-}
-
-.container-about p {
-    padding-top: 10px;
-}
 
 /* Contact us */
 .contact {
