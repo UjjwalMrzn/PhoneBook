@@ -8,78 +8,215 @@
     <title>Document</title>
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <style>
-    
-   *{
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      box-sizing: border-box;
-  }
-  
-  body{
-    width: 100%;
-    height: 50vw;
+        * {
     margin: 0;
     padding: 0;
-    background-image: url("/static/image.png");
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/b.jpg");
     background-position: center;
     background-size: cover;
-  
-  }
+}
 
-
-  h2{
-    color: aliceblue;
-  }
-
-/* navbar */
-  
+/* Navigation bar styling */
 nav {
-    /* background-color: #333; */
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 15px;
+    padding: 5px 15px;
     width: 100%;
-    /* background: rgba(255, 255, 255, 0.2); */
-    align-items: center;
-    /* backdrop-filter: blur(4px) saturate(200%); */
-    margin-top: 15px;
     position: relative;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Logo styling */
 .logo img {
-    height: 60px; /* Adjust the height as needed */
+    height: 60px;
     width: auto;
     padding-left: 50px;
 }
 
-.contain{
+/* Navigation content styling */
+.nav-content {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-right: 30px;
+    justify-content: center;
+    flex-grow: 1;
+    padding-right: 120px;
+    margin-top: 12px;
 }
 
-/* .nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin-right: 20px;
-}
-
-.nav-links li a {
+.nav-content a {
+    display: inline-block;
+    position: relative;
+    font-size: 22px;
     color: #fff;
+    font-weight: 500;
     text-decoration: none;
+    margin-left: 65px;
 }
 
-.nav-links li a:hover {
-    color: #ccc;
-} */
+.nav-content a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    transition: .3s;
+}
 
+.nav-content a:hover::before {
+    width: 100%;
+}
+
+.btn-option {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid #89CFF0;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    backdrop-filter: blur(1px);
+}
+
+.btn-option:hover {
+    background-color: #5fa7d5;
+    color: #fff;
+}
+
+/* Logout container styling */
+.logout-container {
+    position: absolute;
+    top: 38px;
+    right: 5px;
+    color: aliceblue;
+}
+
+.hello-msg {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 95px;
+}
+
+.logout-link {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+
+.logout-link::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s;
+}
+
+.logout-link:hover::before {
+    width: 100%;
+}
+
+
+/* User profile container styling */
+.user-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    top: 8px;
+}
+
+.dropdown-arrow {
+    width: 15px;
+    height: 12px;
+    cursor: pointer;
+    margin-left: 1px;
+    margin-top: 14px;
+}
+
+.user-pic {
+    width: 50px;
+    height: 50px;
+    margin-right: 1px;
+    cursor: pointer;
+}
+
+.user-container:hover .user-pic,
+.user-container:hover .dropdown-arrow {
+    transform: scale(1.1);
+}
+
+/* Dropdown menu styling */
+.submenu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    width: 200px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.submenu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.submenu {
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.submenu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.submenu-link p1 {
+    width: 100%;
+}
+
+.submenu-link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.submenu-link:hover p1 {
+    font-weight: 600;
+}
+
+.submenu-link img:hover {
+    transform: scale(1.1);
+}
+
+  h2{
+    color: aliceblue;
+    margin-top: 20px;
+  }
 
 /* container box */
 .box{
@@ -89,13 +226,6 @@ nav {
       /* height: 600px; */
 }
 
-
-
-/* 
-        .container {
-            margin-top: 3rem;
-            
-        } */
         
         table {
             color: #ffffff; /* Set text color to white */
@@ -164,136 +294,6 @@ td form button:hover {
     margin-top: 15px;
 }
 
-/* .cancel-button,
-.confirm-button {
-    background-color: transparent;
-    border: 2px solid;
-    border-radius: 5px;
-    padding: 8px 17px;
-    cursor: pointer;
-    color: white; 
-}
-
-.cancel-button {
-    border-color: green;
-}
-
-.confirm-button {
-    border-color: red;
-
-} */
-
-
-
-
-
-/* profile */
-
-/* dropdown arrow */
-
-/* profile */
-.user-container {
-    position: relative;
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Align items vertically */
-    margin-top: 3px;
-}
-
-.dropdown-arrow {
-    width: 15px; /* Adjust size as needed */
-    height: 12px;
-    cursor: pointer;
-    margin-left: 1px; /* Add some space between the user pic and dropdown arrow */
-    margin-top: 14px;
-}
-.user-pic {
-    width: 50px; /* Adjust size as needed */
-    height: 50px;
-    margin-right: 1px;
-    cursor: pointer;
-}
-.user-container:hover .user-pic,
-.user-container:hover .dropdown-arrow {
-    transform: scale(1.1);
-}
-
-
-
-
-/* dropdown */
-.submenu-wrap{
-    position: absolute;
-    top: 100%;
-    right: 0%;
-    width: 200px;
-    max-height: 0px;
-    overflow: hidden;
-    transition: max-height 0.5s;
-    z-index: 1;
-
-}
-
-.submenu-wrap.open-menu{
-    max-height: 400px;
-    z-index: 1;
-}
-
-
-
-
-
-.submenu{
-  background: #ffffff;
-    padding: 20px;
-    margin: 10px;
-    /* border: 2px solid #5fa7d5; */
-    border-radius: 10px;
-}
-
-.submenu-link{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #525252;
-    margin: 12px 0;
-}
-
-.submenu-link p{
-    width: 100%;
-    /* transition: font-weight 0.3s; */
-}
-
-.submenu-link img{
-    width: 40px;
-    background: #e5e5e5;
-    border-radius: 50%;
-    padding: 8px;
-    margin-right: 15px;
-    /* transition: transform 0.3s; */
-}
-
-
-
-/* 
-.submenu-link span{
-    font-size: 18px;
-    transition: transfrom 0.5s;
-}
-
-.submenu-link:hover span{
-    transform: translateX(5px);
-} */
-
-.submenu-link:hover p{
-    font-weight: 600;
-
-}
-.submenu-link img:hover{
-  transform: scale(1.1);
-
-}
-
-
 
 /* nx-btn */
 .table-controls {
@@ -327,44 +327,54 @@ td form button:hover {
 </head>
 <body>
 {% block content %}
-
-<!-- navbar -->
-<nav>
+   
+<!-- /* home remake 2 */ -->
+<nav class="navbar-container">
     <div class="logo">
         {% csrf_token %}
-        <a href="/home">  
-        <img src="/static/pip.png" alt="Logo">
+        <a href="/">  
+            <img src="/static/pip.png" alt="Logo">
         </a>
-  </div>
-  <div class="user-container" onclick="toggleMenu()">
-    <img src="/static/pppp.png" class="user-pic">
-    <img src="/static/dropdown.png" class="dropdown-arrow">
-</div>
-  
-  
-  <div class="submenu-wrap" id="subMenu">
-      <div class="submenu">
-          <a href="#" class="submenu-link">
-              <img src="/static/profile.png"  alt="Profile">
-              <p>Edit Profile</p>
-              <!-- <span>></span> -->
-          </a>
-  
-          <a href="#" class="submenu-link">
-              <img src="/static/setting.png" alt="Settings">
-              <p>Settings</p>
-              <!-- <span>></span> -->
-          </a>
-  
-          <a href="{% url 'logout' %}" class="submenu-link">
-              <img src="/static/logout.png" alt="Logout">
-              <p>Logout</p>
-              <!-- <span>></span> -->
-          </a>
-      </div>
-  </div>
-  
-  </nav>
+    </div>
+    
+    <div class="nav-content">
+        <a href="/home">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact</a>
+        <!-- <a href="/search" method="get" type="submit"><img src ="/static/searchbtn.png"></a> -->
+
+    </div>
+    
+    <div class="logout-container"> 
+        <span class="hello-msg">Hello, {{request.user}} |</span>
+    </div>
+
+    <div class="user-container" onclick="toggleMenu()">
+        <img src="/static/pppp.png" class="user-pic" alt="User Picture">
+        <img src="/static/dropdown.png" class="dropdown-arrow" alt="Dropdown Arrow">
+    </div>
+    
+    <div class="submenu-wrap" id="subMenu">
+        <div class="submenu">
+            <a href="#" class="submenu-link">
+                <img src="/static/profile.png" alt="Profile">
+                <p>Edit Profile</p>
+            </a>
+            <a href="/about" class="submenu-link">
+                <img src="/static/abt.png" alt="About Us">
+                <p>About Us</p>
+            </a>
+            <a href="/contact" class="submenu-link">
+                <img src="/static/cnt.png" alt="Contact">
+                <p>Contact</p>
+            </a>
+            <a href="/logout" class="submenu-link">
+                <img src="/static/logout.png" alt="Logout">
+                <p>Logout</p>
+            </a>
+        </div>
+    </div>
+</nav>
 
 
 
