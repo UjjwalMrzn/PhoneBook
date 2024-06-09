@@ -1,9 +1,14 @@
-{% extends 'accounts/main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/add.css">
+  <title></title>
+</head>
+<body>
 
-
-{% block content %}
-
-<!-- navbar -->
+  <!-- navbar -->
 
 <!-- /* home remake 2 */ -->
 <nav class="navbar-container">
@@ -41,11 +46,11 @@
               <img src="/static/abt.png" alt="About Us">
               <p>About Us</p>
           </a>
-          <a href="#" class="submenu-link">
+          <a href="/contact" class="submenu-link">
               <img src="/static/cnt.png" alt="Contact">
               <p>Contact</p>
           </a>
-          <a href="#" class="submenu-link">
+          <a href="/logout" class="submenu-link">
               <img src="/static/logout.png" alt="Logout">
               <p>Logout</p>
           </a>
@@ -201,7 +206,4 @@
 </script>
 
 </body>
-
-
-{% endblock %}
 </html>
