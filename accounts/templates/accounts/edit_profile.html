@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/editpp.css">
+
+</head>
+<body>
+    
+ 
+  <!-- navbar -->
+
+<!-- /* home remake 2 */ -->
+<nav class="navbar-container">
+    <div class="logo">
+        {% csrf_token %}
+        <a href="/home">  
+            <img src="/static/pip.png" alt="Logo">
+        </a>
+    </div>
+    
+    <div class="nav-content">
+        <a href="/home">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact</a>
+        <!-- <a href="/search" method="get" type="submit"><img src ="/static/searchbtn.png"></a> -->
+  
+    </div>
+    
+    <div class="logout-container"> 
+        <span class="hello-msg">Hello, {{request.user}} |</span>
+    </div>
+  
+    <div class="user-container" onclick="toggleMenu()">
+        <img src="/static/pppp.png" class="user-pic" alt="User Picture">
+        <img src="/static/dropdown.png" class="dropdown-arrow" alt="Dropdown Arrow">
+    </div>
+    
+    <div class="submenu-wrap" id="subMenu">
+        <div class="submenu">
+            <a href="/edit_profile" class="submenu-link">
+                <img src="/static/profile.png" alt="Profile">
+                <p>Edit Profile</p>
+            </a>
+            <a href="/about" class="submenu-link">
+                <img src="/static/abt.png" alt="About Us">
+                <p>About Us</p>
+            </a>
+            <a href="/contact" class="submenu-link">
+                <img src="/static/cnt.png" alt="Contact">
+                <p>Contact</p>
+            </a>
+            <a href="/logout" class="submenu-link">
+                <img src="/static/logout.png" alt="Logout">
+                <p>Logout</p>
+            </a>
+        </div>
+    </div>
+  </nav>
+
+    <div class="cointainer">
+        <form action="" method="POST">
+            {% csrf_token %}
+        
+        <h2>Edit Profile</h2>
+        <div class="content">
+            <div class="input-box">
+                <label for="username">Username</label>
+                <input type="text" placeholder="Enter your username" id="username" name="username"required>
+              </div>
+       
+        
+            <div class="input-box">
+                <label for="password1">New Password</label>
+                <input type="password" placeholder="Enter your new password" id="password"  name="password" required>
+              </div>
+
+            
+              <div class="input-box">
+                <label for="password2">Confirm New Password</label>
+                <input type="password" placeholder="Enter your new password again" id="password2"  name="password2" required>
+              </div>
+              
+              
+      
+
+       <div class="btn_container">
+        {% csrf_token %}
+        <form action="/home">
+        <button type="submit" value="submit">Save</button>
+        </form>
+       </div>
+
+       {% for message in messages %}
+        <P id="messages">{{message}}</P>
+       {% endfor %}
+            </form>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; {{ current_year }} PIPL. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Retrieve DOM elements
+        let prevButton = document.getElementById("prevButton");
+        let nextButton = document.getElementById("nextButton");
+        let userPic = document.querySelector(".user-pic");
+    
+        let subMenu = document.getElementById("subMenu");
+    let userContainer = document.querySelector(".user-container");
+    
+    function toggleMenu(event) {
+        event.stopPropagation(); // Prevent the click event from bubbling up to the body
+        subMenu.classList.toggle("open-menu");
+    }
+    
+    // Function to hide submenu when clicking outside
+    function handleClickOutside(event) {
+        if (!subMenu.contains(event.target) && !userContainer.contains(event.target)) {
+            subMenu.classList.remove("open-menu");
+        }
+    }
+    
+    // Event listener to handle clicks on the body
+    document.body.addEventListener("click", handleClickOutside);
+    
+    // Event listener to handle clicks on the user container
+    userContainer.addEventListener("click", toggleMenu);
+        // Function to show the specified page of rows
+        function showPage(pageNumber) {
+            let rows = document.querySelectorAll(".table tbody tr");
+            let startIndex = (pageNumber - 1) * rowsPerPage;
+            let endIndex = Math.min(startIndex + rowsPerPage, rows.length);
+    
+            rows.forEach((row, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    row.style.display = "table-row";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+    
+            // Enable or disable previous button based on current page
+            prevButton.disabled = currentPage === 1;
+    
+            // Enable or disable next button based on current page
+            nextButton.disabled = endIndex >= rows.length;
+        }
+    
+        // Function to handle next page navigation
+        function nextPage() {
+            currentPage++;
+            showPage(currentPage);
+        }
+    
+        // Function to handle previous page navigation
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+    
+        // Event listeners
+        document.body.addEventListener("click", handleClickOutside);
+        userPic.addEventListener("click", toggleMenu);
+        subMenu.addEventListener("click", function(event){ event.stopPropagation(); }); // Prevent submenu click from closing
+        nextButton.addEventListener("click", nextPage);
+        prevButton.addEventListener("click", prevPage);
+    
+        // Initial display
+        showPage(currentPage);
+    
+    
+    
+    </script>
+    
+
+
+</body>
+</html>

@@ -11,6 +11,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 
+from .forms import UserEditForm, PasswordChangeCustomForm
+from django.contrib import messages
+
 
 # Create your views here.
 from .models import *
@@ -207,3 +210,16 @@ def logoutuser(request):
 
 def user(request):
     return render(request, 'accounts/user.html')
+
+
+@login_required(login_url='login')
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = UserEditForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+    else:
+        form = UserEditForm(instance=request.user)
+
+    return render(request, 'accounts/edit_profile.html', {'form': form})
