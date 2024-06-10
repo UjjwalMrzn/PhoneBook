@@ -189,7 +189,9 @@ nav {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
+    z-index: 1000; /* Add this line to ensure the submenu appears in front of other elements */
 }
+
 
 .submenu-wrap.open-menu {
     max-height: 400px;
@@ -314,10 +316,14 @@ td form button:hover {
 
 /* nx-btn */
 .table-controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px; /* Adjust the margin as needed */
     gap: 8px;
+    position: fixed; /* Use fixed positioning to always stick at the bottom */
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px 0; /* Add 20px padding at the bottom */
 }
 
 .table-controls button {

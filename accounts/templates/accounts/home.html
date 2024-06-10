@@ -19,9 +19,9 @@
     </div>
     
     <div class="nav-content">
-        <a href="/home">Home</a>
-        <a href="/about">About Us</a>
-        <a href="/contact">Contact</a>
+        <a href="/home" class="{% if request.path == '/home/' %}active{% endif %}">Home</a>
+        <a href="/about" class="{% if request.path == '/about/' %}active{% endif %}" >About Us</a>
+        <a href="/contact" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a>
         <!-- <a href="/search" method="get" type="submit"><img src ="/static/searchbtn.png"></a> -->
 
     </div>

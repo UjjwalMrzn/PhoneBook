@@ -1,53 +1,63 @@
-{% extends 'accounts/search.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/delete.css">
 
+</head>
+<body>
+    
 
-
-<!-- {% block additional_styles %}
-table {
-    margin-top: 30px; /* Additional margin-top only for this page */
-}
-{% endblock %} -->
-
-
-{% block content %}
-
-<!-- navbar -->
-<nav>
+   
+<!-- /* home remake 2 */ -->
+<nav class="navbar-container">
     <div class="logo">
         {% csrf_token %}
         <a href="/home">  
-        <img src="/static/pip.png" alt="Logo">
+            <img src="/static/pip.png" alt="Logo">
         </a>
-  </div>
-  
-  <div class="user-container" onclick="toggleMenu()">
-    <img src="/static/pppp.png" class="user-pic">
-    <img src="/static/dropdown.png" class="dropdown-arrow">
-</div>  
-  
-  <div class="submenu-wrap" id="subMenu">
-      <div class="submenu">
-          <a href="#" class="submenu-link">
-              <img src="/static/profile.png"  alt="Profile">
-              <p>Edit Profile</p>
-              <!-- <span>></span> -->
-          </a>
-  
-          <a href="#" class="submenu-link">
-              <img src="/static/setting.png" alt="Settings">
-              <p>Settings</p>
-              <!-- <span>></span> -->
-          </a>
-  
-          <a href="{% url 'logout' %}" class="submenu-link">
-              <img src="/static/logout.png" alt="Logout">
-              <p>Logout</p>
-              <!-- <span>></span> -->
-          </a>
-      </div>
-  </div>
-  
-  </nav>
+    </div>
+
+    
+  <div class="search-container">
+    <form action="/search" method="get" class="search-bar">
+        <input type="text" placeholder="Search" name="query" id="search" required>
+        <button type="submit"><img src="/static/search.png"></button>
+    </form>
+</div>
+    
+    
+    <div class="logout-container"> 
+        <span class="hello-msg">Hello, {{request.user}} |</span>
+    </div>
+
+    <div class="user-container" onclick="toggleMenu()">
+        <img src="/static/pppp.png" class="user-pic" alt="User Picture">
+        <img src="/static/dropdown.png" class="dropdown-arrow" alt="Dropdown Arrow">
+    </div>
+    
+    <div class="submenu-wrap" id="subMenu">
+        <div class="submenu">
+            <a href="#" class="submenu-link">
+                <img src="/static/profile.png" alt="Profile">
+                <p>Edit Profile</p>
+            </a>
+            <a href="/about" class="submenu-link">
+                <img src="/static/abt.png" alt="About Us">
+                <p>About Us</p>
+            </a>
+            <a href="/contact" class="submenu-link">
+                <img src="/static/cnt.png" alt="Contact">
+                <p>Contact</p>
+            </a>
+            <a href="/logout" class="submenu-link">
+                <img src="/static/logout.png" alt="Logout">
+                <p>Logout</p>
+            </a>
+        </div>
+    </div>
+</nav>
 
 
 
@@ -165,6 +175,6 @@ userContainer.addEventListener("click", toggleMenu);
 
 </script>
 
-{% endblock %}
 
-
+</body>
+</html>

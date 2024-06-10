@@ -1,4 +1,5 @@
-   * {
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -116,7 +117,6 @@ nav {
 }
 
 
-
 /* Logout container styling */
 .logout-container {
     position: absolute;
@@ -190,7 +190,6 @@ nav {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
-    z-index: 1000; /* Add this line to ensure the submenu appears in front of other elements */
 }
 
 .submenu-wrap.open-menu {
@@ -255,7 +254,7 @@ nav {
             justify-content: center;
             border-collapse: collapse;
             width: 100%;
-            /* margin-top: 30px; */
+            margin-top: 40px;
         }
 
 
@@ -314,17 +313,16 @@ td form button:hover {
 }
 
 
+/* nx-btn */
 .table-controls {
+    gap: 8px;
+    position: fixed; /* Use fixed positioning to always stick at the bottom */
+    bottom: 0;
+    width: 100%;
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    position: fixed; /* Use fixed positioning to always stick at the bottom */
-    bottom: 0;
-    left: 50%; /* Move to the center horizontally */
-    transform: translateX(-50%); /* Adjust back by half of its width to perfectly center */
-    width: 100%;
     padding: 20px 0; /* Add 20px padding at the bottom */
-    gap: 8px;
 }
 
 .table-controls button {
@@ -339,8 +337,40 @@ td form button:hover {
 }
 
 /* hover color */
-.table-controls button:hover {
+.table-controls button:hover{
     background-color: #5fa7d5;
     color: #fff;
     backdrop-filter: blur(1px) saturate(180%);
+}
+
+
+        table {
+            color: #ffffff; /* Set text color to white */
+            background-color: transparent; /* Set table background color */
+            backdrop-filter: blur(6px);
+            border: 2px solid #fff;
+            align-items: center;
+            justify-content: center;
+            border-collapse: collapse;
+            width: 100%;
+            /* margin-top: 30px; */
+        }
+
+
+        table th,
+        table td {
+            border: 1px solid #ffffff; /* Set border color to white */
+            padding: 20px;
+            text-align: center;
+        }
+        td form button {
+    background-color: #4CAF50; 
+    padding: 5px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+td form button:hover {
+    background-color: #45a049;
 }
