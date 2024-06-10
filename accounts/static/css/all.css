@@ -35,38 +35,63 @@ nav {
     padding-left: 50px;
 }
 
-/* Navigation content styling */
-.nav-content {
+
+/*search bar*/
+.search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 30%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 30px; /* Decrease border-radius to fit the reduced height */
+    padding: 1px 2px;
+    backdrop-filter: blur(4px) saturate(180%);
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 8px 15px; /* Reduce padding to decrease height */
+    font-size: 16px; /* Adjust font size accordingly */
+    color: #ffffff;
+}
+
+::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+.search-bar button img {
+    width: 20px; /* Adjust image size if necessary */
+}
+
+.search-bar button {
+    border: 0;
+    border-radius: 30px; /* Adjust to fit the new height */
+    width: 40px; /* Adjust width if necessary */
+    height: 40px; /* Reduce height */
+    background: #419dc7;
+    cursor: pointer;
+    backdrop-filter: blur(4px) saturate(50%);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: transparent;
+}
+
+.button-container {
     display: flex;
     justify-content: center;
-    flex-grow: 1;
-    padding-right: 120px;
-    margin-top: 12px;
-}
-
-.nav-content a {
-    display: inline-block;
-    position: relative;
-    font-size: 22px;
-    color: #fff;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 65px;
-}
-
-.nav-content a::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #fff;
-    transition: .3s;
-}
-
-.nav-content a:hover::before {
-    width: 100%;
+    margin-top: 15px;
 }
 
 .btn-option {
@@ -76,7 +101,7 @@ nav {
     border: 2px solid #89CFF0;
     border-radius: 10px;
     color: white;
-    padding: 10px 20px;
+    padding: 5px 10px; /* Reduce padding to decrease height */
     font-weight: bold;
     cursor: pointer;
     margin: 10px;
@@ -88,6 +113,7 @@ nav {
     background-color: #5fa7d5;
     color: #fff;
 }
+
 
 /* Logout container styling */
 .logout-container {
@@ -226,7 +252,7 @@ nav {
             justify-content: center;
             border-collapse: collapse;
             width: 100%;
-            margin-top: 70px;
+            margin-top: 40px;
         }
 
 

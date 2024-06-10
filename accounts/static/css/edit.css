@@ -251,13 +251,10 @@ footer {
     overflow: hidden;
     background: transparent;
     border: 1px solid white; /* Adding a white border */
-    /* margin-left: 650px;
-    margin-top: 100px;
-     */
+    /* margin-left: 650px;*/
+    margin-top: 60px;
     backdrop-filter: blur(5px) saturate(90%);
   }
-
-
 
 
 h2{
