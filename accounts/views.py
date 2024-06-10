@@ -19,8 +19,12 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 
 def navbar(request):
     return render(request, 'accounts/navbar.html')
+
+@login_required(login_url='login')
 def about(request):
     return render(request, 'accounts/aboutus.html')
+
+@login_required(login_url='login')
 def contact(request):
     return render(request, 'accounts/contactus.html')
 
